@@ -23,15 +23,19 @@ public class tvProgressView: UIView {
         }
         return sharedInstance
     }
+
+    //MARK: - Public Properties
+
+    public var loaderInstance: tvProgressLoaderProtocol = tvProgressDefaultLoader()
+
+    //MARK: - Private Properties
     
-    //MARK: - Properties
-    
-    var mainView: UIView?
-    var blurView: UIVisualEffectView?
+    private var mainView: UIView?
+    private var blurView: UIVisualEffectView?
     
     //MARK: - Private methods
     
-    func initView() -> Void {
+    private func initView() -> Void {
         self.frame = UIScreen.mainScreen().bounds
         
         self.mainView = UIView(frame: self.frame)
@@ -43,12 +47,23 @@ public class tvProgressView: UIView {
         self.mainView?.addSubview(self.blurView!)
     }
     
+    private func buildView() -> Void {
+        self.buildLoader()
+    }
+    
+    private func buildLoader() -> Void {
+        let loader: UIView = self.loaderInstance.getLoader()
+        loader.frame = CGRectMake((self.frame.width / 2) - (loader.frame.width / 2), (self.frame.height / 2) - (loader.frame.height / 2), loader.frame.width, loader.frame.height)
+        self.mainView!.addSubview(loader)
+    }
+    
     //MARK: - Public methods
     
     public func show() -> Void {
         if self.mainView == nil {
             self.initView()
         }
+        self.buildView()
         self.addSubview(self.mainView!)
         let tabWindow: [UIWindow] = UIApplication.sharedApplication().windows
         for w in tabWindow {

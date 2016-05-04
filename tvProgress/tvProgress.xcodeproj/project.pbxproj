@@ -15,6 +15,8 @@
 		690A27391CDA8DAD00C63567 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690A27381CDA8DAD00C63567 /* Assets.xcassets */; };
 		690A273E1CDA8DBB00C63567 /* tvProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690A271E1CDA7D9700C63567 /* tvProgress.framework */; };
 		690A273F1CDA8DBB00C63567 /* tvProgress.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 690A271E1CDA7D9700C63567 /* tvProgress.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		690A27441CDA913600C63567 /* tvProgressDefaultLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690A27431CDA913600C63567 /* tvProgressDefaultLoader.swift */; };
+		690A27461CDA915200C63567 /* tvProgressLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690A27451CDA915200C63567 /* tvProgressLoaderProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		690A27361CDA8DAD00C63567 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		690A27381CDA8DAD00C63567 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		690A273A1CDA8DAD00C63567 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		690A27431CDA913600C63567 /* tvProgressDefaultLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tvProgressDefaultLoader.swift; sourceTree = "<group>"; };
+		690A27451CDA915200C63567 /* tvProgressLoaderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tvProgressLoaderProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 				690A27211CDA7D9700C63567 /* tvProgress.h */,
 				690A27231CDA7D9700C63567 /* Info.plist */,
 				690A27291CDA800F00C63567 /* tvProgressView.swift */,
+				690A27431CDA913600C63567 /* tvProgressDefaultLoader.swift */,
+				690A27451CDA915200C63567 /* tvProgressLoaderProtocol.swift */,
 			);
 			path = tvProgress;
 			sourceTree = "<group>";
@@ -226,6 +232,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				690A272A1CDA800F00C63567 /* tvProgressView.swift in Sources */,
+				690A27441CDA913600C63567 /* tvProgressDefaultLoader.swift in Sources */,
+				690A27461CDA915200C63567 /* tvProgressLoaderProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
