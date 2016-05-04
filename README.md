@@ -1,8 +1,7 @@
 tvProgress
 ===================
 
-A tvOS Framework for progress HUD displaying.
-
+This project is a tvOS framework to display beautiful loaders and messages to the user
 
 Install
 -------------
