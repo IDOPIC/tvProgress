@@ -30,6 +30,20 @@
 			remoteGlobalIDString = 95ED78371CDB895400D36929;
 			remoteInfo = "tvProgress-Demo";
 		};
+		EC2057AA1CDBF551003EF294 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2057A51CDBF551003EF294 /* tvProgress.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 958834A01CDB88AD007509F4;
+			remoteInfo = tvProgress;
+		};
+		EC2057AC1CDBF551003EF294 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2057A51CDBF551003EF294 /* tvProgress.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 958834AA1CDB88AE007509F4;
+			remoteInfo = tvProgressTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +59,7 @@
 		95ED78541CDB895500D36929 /* tvProgress-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tvProgress-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95ED78581CDB895500D36929 /* tvProgress_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvProgress_DemoUITests.swift; sourceTree = "<group>"; };
 		95ED785A1CDB895500D36929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC2057A51CDBF551003EF294 /* tvProgress.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = tvProgress.xcodeproj; path = ../../tvProgress.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +110,7 @@
 		95ED783A1CDB895500D36929 /* tvProgress-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				EC2057A41CDBF537003EF294 /* Frameworks */,
 				95ED783B1CDB895500D36929 /* AppDelegate.swift */,
 				95ED783D1CDB895500D36929 /* ViewController.swift */,
 				95ED783F1CDB895500D36929 /* Main.storyboard */,
@@ -120,6 +136,23 @@
 				95ED785A1CDB895500D36929 /* Info.plist */,
 			);
 			path = "tvProgress-DemoUITests";
+			sourceTree = "<group>";
+		};
+		EC2057A41CDBF537003EF294 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC2057A51CDBF551003EF294 /* tvProgress.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC2057A61CDBF551003EF294 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC2057AB1CDBF551003EF294 /* tvProgress.framework */,
+				EC2057AD1CDBF551003EF294 /* tvProgressTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +245,12 @@
 			mainGroup = 95ED782F1CDB895400D36929;
 			productRefGroup = 95ED78391CDB895400D36929 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EC2057A61CDBF551003EF294 /* Products */;
+					ProjectRef = EC2057A51CDBF551003EF294 /* tvProgress.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				95ED78371CDB895400D36929 /* tvProgress-Demo */,
@@ -220,6 +259,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EC2057AB1CDBF551003EF294 /* tvProgress.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = tvProgress.framework;
+			remoteRef = EC2057AA1CDBF551003EF294 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC2057AD1CDBF551003EF294 /* tvProgressTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = tvProgressTests.xctest;
+			remoteRef = EC2057AC1CDBF551003EF294 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		95ED78361CDB895400D36929 /* Resources */ = {
@@ -472,6 +528,7 @@
 				95ED785F1CDB895500D36929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95ED78601CDB895500D36929 /* Build configuration list for PBXNativeTarget "tvProgress-DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +537,7 @@
 				95ED78621CDB895500D36929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95ED78631CDB895500D36929 /* Build configuration list for PBXNativeTarget "tvProgress-DemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +546,7 @@
 				95ED78651CDB895500D36929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
