@@ -9,18 +9,12 @@
 import Foundation
 
 class FlatCircleLoader: tvLoaderAnimatable {
-    //MARK: - Properties
-    var view: UIView? = nil
-    
     //MARK: - Life Cycle
-    required init(frame: CGRect) {
-        self.view = UIView(frame: frame)
+    required init() {
     }
     
-    func configureWithStyle(style: tvProgressStyle) -> Void {
-        guard let v = self.view else {
-            return
-        }
+    func configureWithStyle(style: tvProgressStyle) -> UIView {
+        let v: UIView = UIView()
         
         let bounds = v.frame
         let rectShape = CAShapeLayer()
@@ -31,7 +25,7 @@ class FlatCircleLoader: tvLoaderAnimatable {
         
         rectShape.path = UIBezierPath(ovalInRect: rectShape.bounds).CGPath
         rectShape.lineWidth = 7.0
-        rectShape.strokeColor = UIColor.whiteColor().CGColor
+        rectShape.strokeColor = style.mainColor.CGColor
         rectShape.fillColor = UIColor.clearColor().CGColor
         rectShape.strokeStart = 0
         rectShape.strokeEnd = 1
@@ -54,5 +48,7 @@ class FlatCircleLoader: tvLoaderAnimatable {
         group.repeatCount = HUGE
         
         rectShape.addAnimation(group, forKey: nil)
+        
+        return v
     }
 }

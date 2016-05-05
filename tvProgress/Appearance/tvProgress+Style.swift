@@ -10,7 +10,7 @@ import Foundation
 
 extension tvProgress {
     //MARK: - Properties
-    public var style: tvProgressStyle? {
+    public var style: tvProgressStyle! {
         get {
             return self.style ?? .Light
         }
@@ -19,7 +19,7 @@ extension tvProgress {
         }
     }
     
-    public var font: UIFont? {
+    public var font: UIFont! {
         get {
             return self.font ?? UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
         }
@@ -28,7 +28,7 @@ extension tvProgress {
         }
     }
     
-    public var successImage: UIImage? {
+    public var successImage: UIImage! {
         get {
             return self.successImage ?? UIImage(named: "ic_success")!.imageWithRenderingMode(.AlwaysTemplate)
         }
@@ -37,7 +37,7 @@ extension tvProgress {
         }
     }
     
-    public var errorImage: UIImage? {
+    public var errorImage: UIImage! {
         get {
             return self.errorImage ?? UIImage(named: "ic_error")!.imageWithRenderingMode(.AlwaysTemplate)
         }
@@ -46,7 +46,7 @@ extension tvProgress {
         }
     }
     
-    public var minimumDismissDuration: Double? {
+    public var minimumDismissDuration: Double! {
         get {
             return self.minimumDismissDuration ?? 5
         }
@@ -55,7 +55,7 @@ extension tvProgress {
         }
     }
     
-    public var fadeInAnimationDuration: Double? {
+    public var fadeInAnimationDuration: Double! {
         get {
             return self.fadeInAnimationDuration ?? 5
         }
@@ -64,7 +64,7 @@ extension tvProgress {
         }
     }
     
-    public var fadeOutAnimationDuration: Double? {
+    public var fadeOutAnimationDuration: Double! {
         get {
             return self.fadeOutAnimationDuration ?? 5
         }

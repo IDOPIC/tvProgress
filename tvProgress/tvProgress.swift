@@ -10,7 +10,7 @@ import UIKit
 
 public class tvProgress: UIView {
     //MARK: - Properties
-    private var _isVisible: Bool = false
+    var _isVisible: Bool = false
     public var isVisible: Bool {
         get {
             return _isVisible
@@ -20,20 +20,28 @@ public class tvProgress: UIView {
     //MARK: - Singleton
     static let sharedInstance: tvProgress = {
         let instance = tvProgress()
-
+        
         instance.frame = UIScreen.mainScreen().bounds
         instance.alpha = 0
-        instance.userInteractionEnabled = false
         
         return instance
     }()
     
     //MARK: - Methods
-    func dismiss() -> Void {
-        //TODO: - Implementation
-    }
-    
-    func dismissWithDelay(delay: Double) -> Void {
-        //TODO: - Implementation
+    static func dismiss(delay: Double = 0) -> Void {
+        let instance: tvProgress = tvProgress.sharedInstance
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            if instance._isVisible {
+                UIView.animateWithDuration(instance.fadeOutAnimationDuration, delay: delay, options: .CurveEaseInOut, animations: { () -> Void in
+                    instance.alpha = 0
+                }) { (_) -> Void in
+                    for v in instance.subviews {
+                        v.removeFromSuperview()
+                    }
+                    instance.removeFromSuperview()
+                    instance._isVisible = false
+                }
+            }
+        }
     }
 }
