@@ -16,11 +16,8 @@ enum tvProgressType {
         switch self {
         case .Default:
             return .None
-            break
         case .Custom(let cl):
             return cl.init(frame: CGRectMake(0, 0, 100, 100))
-        default:
-            return .None
         }
     }
 }

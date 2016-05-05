@@ -12,15 +12,12 @@ enum tvLoaderType {
     case Default()
     case Custom(cl: tvLoaderAnimatable.Type)
     
-    var getInstance: tvLoaderAnimatable {
+    var getInstance: tvLoaderAnimatable? {
         switch self {
         case .Default:
-            //TODO - Add default class
-            break
+            return .None
         case .Custom(let cl):
             return cl.init(frame: CGRectMake(0, 0, 100, 100))
-        default:
-            return nil
         }
     }
 }

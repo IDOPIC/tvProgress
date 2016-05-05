@@ -10,38 +10,38 @@ import Foundation
 
 extension tvProgress {
     func setDefaultStyle(style: tvProgressStyle) -> Void {
-        //TODO: - Implementation
+        self.style = style
     }
     
     func setDefaultLoaderAnimationType(type: tvLoaderType) -> Void {
-        //TODO: - Implementation
+        self.loaderType = type
     }
     
     func setDefaultProgressAnimationType(type: tvProgressType) -> Void {
-        //TODO: - Implementation
+        self.progressType = type
     }
     
-    func setFont(font: UIFont?) -> Void {
-        //TODO: - Implementation
+    func setDefaultFont(font: UIFont?) -> Void {
+        self.font = font ?? UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
     }
     
-    func setSuccessImage(image: UIImage?) -> Void {
-        //TODO: - Implementation
+    func setDefaultSuccessImage(image: UIImage?) -> Void {
+        self.errorImage = image ?? UIImage(named: "ic_success")!.imageWithRenderingMode(.AlwaysTemplate)
     }
     
-    func setErrorImage(image: UIImage?) -> Void {
-        //TODO: - Implementation
+    func setDefaultErrorImage(image: UIImage?) -> Void {
+        self.errorImage = image ?? UIImage(named: "ic_error")!.imageWithRenderingMode(.AlwaysTemplate)
     }
     
     func setMinimumDismissDuration(duration: Double?) -> Void {
-        //TODO: - Implementation
+        self.minimumDismissDuration = duration ?? 5
     }
     
     func setFadeInAnimationDuration(duration: Double?) -> Void {
-        //TODO: - Implementation
+        self.fadeInAnimationDuration = duration ?? 0.15
     }
     
     func setFadeOutAnimationDuration(duration: Double?) -> Void {
-        //TODO: - Implementation
+        self.fadeOutAnimationDuration = duration ?? 0.15
     }
 }
