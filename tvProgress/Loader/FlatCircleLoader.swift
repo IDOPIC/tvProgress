@@ -14,7 +14,7 @@ class FlatCircleLoader: tvLoaderAnimatable {
     }
     
     func configureWithStyle(style: tvProgressStyle) -> UIView {
-        let v: UIView = UIView()
+        let v: UIView = UIView(frame: CGRectMake(0, 0, 100, 100))
         
         let bounds = v.frame
         let rectShape = CAShapeLayer()

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		954F526C1CDBF6DF0080805E /* tvProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2057AB1CDBF551003EF294 /* tvProgress.framework */; };
+		954F526D1CDBF6DF0080805E /* tvProgress.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC2057AB1CDBF551003EF294 /* tvProgress.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95ED783C1CDB895500D36929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED783B1CDB895500D36929 /* AppDelegate.swift */; };
 		95ED783E1CDB895500D36929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED783D1CDB895500D36929 /* ViewController.swift */; };
 		95ED78411CDB895500D36929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95ED783F1CDB895500D36929 /* Main.storyboard */; };
@@ -16,6 +18,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		954F526E1CDBF6DF0080805E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2057A51CDBF551003EF294 /* tvProgress.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9588349F1CDB88AD007509F4;
+			remoteInfo = tvProgress;
+		};
 		95ED784A1CDB895500D36929 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 95ED78301CDB895400D36929 /* Project object */;
@@ -46,6 +55,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		954F52701CDBF6DF0080805E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				954F526D1CDBF6DF0080805E /* tvProgress.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		95ED78381CDB895400D36929 /* tvProgress-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tvProgress-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95ED783B1CDB895500D36929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954F526C1CDBF6DF0080805E /* tvProgress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,10 +189,12 @@
 				95ED78341CDB895400D36929 /* Sources */,
 				95ED78351CDB895400D36929 /* Frameworks */,
 				95ED78361CDB895400D36929 /* Resources */,
+				954F52701CDBF6DF0080805E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				954F526F1CDBF6DF0080805E /* PBXTargetDependency */,
 			);
 			name = "tvProgress-Demo";
 			productName = "tvProgress-Demo";
@@ -332,6 +358,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		954F526F1CDBF6DF0080805E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = tvProgress;
+			targetProxy = 954F526E1CDBF6DF0080805E /* PBXContainerItemProxy */;
+		};
 		95ED784B1CDB895500D36929 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 95ED78371CDB895400D36929 /* tvProgress-Demo */;
@@ -444,6 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "tvProgress-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tvProgress.tvProgress-Demo";
@@ -456,6 +488,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "tvProgress-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tvProgress.tvProgress-Demo";

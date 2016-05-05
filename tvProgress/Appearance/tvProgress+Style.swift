@@ -8,68 +8,68 @@
 
 import Foundation
 
-extension tvProgress {
+public extension tvProgress {
     //MARK: - Properties
     public var style: tvProgressStyle! {
         get {
-            return self.style ?? .Light
+            return self._style ?? .Light
         }
         set(newStyle) {
-            self.style = newStyle ?? .Light
+            self._style = newStyle ?? .Light
         }
     }
     
     public var font: UIFont! {
         get {
-            return self.font ?? UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+            return self._font ?? UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         }
         set(newFont) {
-            self.font = newFont ?? UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+            self._font = newFont ?? UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         }
     }
     
     public var successImage: UIImage! {
         get {
-            return self.successImage ?? UIImage(named: "ic_success")!.imageWithRenderingMode(.AlwaysTemplate)
+            return self._successImage ?? UIImage(named: "ic_success")!.imageWithRenderingMode(.AlwaysTemplate)
         }
         set(newImage) {
-            self.successImage = newImage ?? UIImage(named: "ic_success")!.imageWithRenderingMode(.AlwaysTemplate)
+            self._successImage = newImage ?? UIImage(named: "ic_success")!.imageWithRenderingMode(.AlwaysTemplate)
         }
     }
     
     public var errorImage: UIImage! {
         get {
-            return self.errorImage ?? UIImage(named: "ic_error")!.imageWithRenderingMode(.AlwaysTemplate)
+            return self._errorImage ?? UIImage(named: "ic_error")!.imageWithRenderingMode(.AlwaysTemplate)
         }
         set(newImage) {
-            self.errorImage = newImage ?? UIImage(named: "ic_error")!.imageWithRenderingMode(.AlwaysTemplate)
+            self._errorImage = newImage ?? UIImage(named: "ic_error")!.imageWithRenderingMode(.AlwaysTemplate)
         }
     }
     
     public var minimumDismissDuration: Double! {
         get {
-            return self.minimumDismissDuration ?? 5
+            return self._minimumDismissDuration ?? 5
         }
         set(newMin) {
-            self.minimumDismissDuration = newMin ?? 5
+            self._minimumDismissDuration = newMin ?? 5
         }
     }
     
     public var fadeInAnimationDuration: Double! {
         get {
-            return self.fadeInAnimationDuration ?? 5
+            return self._fadeInAnimationDuration ?? 0.15
         }
         set(newMin) {
-            self.fadeInAnimationDuration = newMin ?? 5
+            self._fadeInAnimationDuration = newMin ?? 0.15
         }
     }
     
     public var fadeOutAnimationDuration: Double! {
         get {
-            return self.fadeOutAnimationDuration ?? 5
+            return self._fadeOutAnimationDuration ?? 0.15
         }
         set(newMin) {
-            self.fadeOutAnimationDuration = newMin ?? 5
+            self._fadeOutAnimationDuration = newMin ?? 0.15
         }
     }
 }

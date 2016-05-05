@@ -26,12 +26,21 @@ public enum tvProgressStyle {
     
     var secondaryColor: UIColor {
         switch self {
-        case .Light:
-            return UIColor.blackColor()
         case .Dark:
+            return UIColor.blackColor()
+        case .Light:
             return UIColor.whiteColor()
         case .Custom(_, let secondaryColor):
             return secondaryColor
+        }
+    }
+    
+    var blurStyle: UIBlurEffectStyle {
+        switch self {
+        case .Dark:
+            return .Dark
+        default:
+            return .Light
         }
     }
 }

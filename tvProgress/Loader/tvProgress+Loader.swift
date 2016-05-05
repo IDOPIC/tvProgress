@@ -8,23 +8,26 @@
 
 import Foundation
 
-extension tvProgress {
+public extension tvProgress {
     //MARK: - Properties
     public var loaderType: tvLoaderType! {
         get {
-            return self.loaderType ?? .Default()
+            return self._loaderType ?? .Default()
         }
         set(newLoader) {
-            self.loaderType = newLoader ?? .Default()
+            self._loaderType = newLoader ?? .Default()
         }
     }
     
     //MARK: - Methods
-    static func show(status: String? = .None, loaderType: tvLoaderType? = .None, style: tvProgressStyle? = nil) -> Void {
+    public static func show(status: String? = .None, loaderType: tvLoaderType? = .None, style: tvProgressStyle? = nil) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
             if !instance._isVisible {
                 instance._isVisible = true
+                
+                let blurEffect: UIBlurEffect = UIBlurEffect(style: (style ?? instance.style).blurStyle)
+                instance._blurView?.effect = blurEffect
                 
                 let loaderView: UIView = (loaderType ?? instance.loaderType).getInstance(style ?? instance.style) ?? UIView(frame: CGRectZero)
                 loaderView.frame = CGRectMake(instance.center.x - (loaderView.frame.width / 2), instance.center.y - (loaderView.frame.height / 2), loaderView.frame.width, loaderView.frame.height)
@@ -36,6 +39,10 @@ extension tvProgress {
                     statusLabel.numberOfLines = 0
                     statusLabel.font = instance.font
                     statusLabel.backgroundColor = UIColor.clearColor()
+                    statusLabel.textColor = (style ?? tvProgressStyle.Light).mainColor
+                    
+                    statusLabel.sizeToFit()
+                    statusLabel.frame = CGRectMake(instance.center.x - (statusLabel.frame.width / 2), loaderView.frame.origin.y + loaderView.frame.height + 30, statusLabel.frame.width, statusLabel.frame.height)
                     
                     instance.addSubview(statusLabel)
                 }
