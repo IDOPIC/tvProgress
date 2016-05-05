@@ -8,20 +8,20 @@
 
 import Foundation
 
-enum tvLoaderType<T where T: UIView, T:tvLoaderAnimatable> {
+enum tvLoaderType {
     case Default()
-    case Custom(cl: T.Type, width: CGFloat, height: CGFloat)
+    case Custom(cl: tvLoaderAnimatable.Type, width: CGFloat, height: CGFloat)
     
-    var getInstance: tvLoaderAnimatable {
+    func getInstance(style: tvProgressStyle) -> tvLoaderAnimatable {
         switch self {
         case .Default:
             let view = FlatCircleLoader.init(frame: CGRectMake(0, 0, 100, 100))
-            view.configure()
+            view.configureWithStyle(style)
             
             return view
         case .Custom(let cl, let width, let height):
             let view = cl.init(frame: CGRectMake(0, 0, width, height))
-            view.configure()
+            view.configureWithStyle(style)
             
             return view
         }

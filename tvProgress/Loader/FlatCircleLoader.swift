@@ -8,25 +8,26 @@
 
 import Foundation
 
-class FlatCircleLoader: UIView, tvLoaderAnimatable {
+class FlatCircleLoader: tvLoaderAnimatable {
     //MARK: - Properties
+    var view: UIView? = nil
     
     //MARK: - Life Cycle
-    override required init(frame: CGRect) {
-        super.init(frame: frame)
+    required init(frame: CGRect) {
+        self.view = UIView(frame: frame)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure() -> Void {
-        let bounds = self.frame
+    func configureWithStyle(style: tvProgressStyle) -> Void {
+        guard let v = self.view else {
+            return
+        }
+        
+        let bounds = v.frame
         let rectShape = CAShapeLayer()
         rectShape.bounds = bounds
-        rectShape.position = self.center
+        rectShape.position = v.center
         rectShape.cornerRadius = bounds.width / 2
-        self.layer.addSublayer(rectShape)
+        v.layer.addSublayer(rectShape)
         
         rectShape.path = UIBezierPath(ovalInRect: rectShape.bounds).CGPath
         rectShape.lineWidth = 7.0
