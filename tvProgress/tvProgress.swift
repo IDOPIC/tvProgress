@@ -9,6 +9,7 @@
 import UIKit
 
 class tvProgress: UIView {
+    //MARK: - Properties
     var isVisible: Bool = false
     var style: tvProgressStyle = .Light
     var loaderType: tvLoaderType = .Default()
@@ -20,6 +21,7 @@ class tvProgress: UIView {
     var fadeInAnimationDuration: Double = 0.15
     var fadeOutAnimationDuration: Double = 0.15
     
+    //MARK: - Singleton
     static let sharedInstance: tvProgress = {
         let instance = tvProgress()
         
@@ -30,6 +32,7 @@ class tvProgress: UIView {
         return instance
     }()
     
+    //MARK: - Methods
     func dismiss() -> Void {
         //TODO: - Implementation
     }

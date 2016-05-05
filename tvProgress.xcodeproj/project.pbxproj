@@ -22,6 +22,7 @@
 		95ED787F1CDB971700D36929 /* tvProgress+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED787E1CDB971700D36929 /* tvProgress+Error.swift */; };
 		95ED78821CDB97EE00D36929 /* tvProgress+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78811CDB97EE00D36929 /* tvProgress+Appearance.swift */; };
 		95ED78841CDB982000D36929 /* tvProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78831CDB982000D36929 /* tvProgressStyle.swift */; };
+		95ED78901CDBB15900D36929 /* FlatCircleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED788F1CDBB15900D36929 /* FlatCircleLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		95ED787E1CDB971700D36929 /* tvProgress+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "tvProgress+Error.swift"; path = "Error/tvProgress+Error.swift"; sourceTree = "<group>"; };
 		95ED78811CDB97EE00D36929 /* tvProgress+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "tvProgress+Appearance.swift"; path = "Appearance/tvProgress+Appearance.swift"; sourceTree = "<group>"; };
 		95ED78831CDB982000D36929 /* tvProgressStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvProgressStyle.swift; path = Appearance/tvProgressStyle.swift; sourceTree = "<group>"; };
+		95ED788F1CDBB15900D36929 /* FlatCircleLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlatCircleLoader.swift; path = Loader/FlatCircleLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				95ED78721CDB8EEA00D36929 /* tvLoaderAnimatable.swift */,
 				95ED78761CDB8FE600D36929 /* tvLoaderType.swift */,
 				95ED78781CDB955900D36929 /* tvProgress+Loader.swift */,
+				95ED788F1CDBB15900D36929 /* FlatCircleLoader.swift */,
 			);
 			name = Loader;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95ED78821CDB97EE00D36929 /* tvProgress+Appearance.swift in Sources */,
+				95ED78901CDBB15900D36929 /* FlatCircleLoader.swift in Sources */,
 				95ED78751CDB8F7000D36929 /* tvProgressType.swift in Sources */,
 				95ED78711CDB8ECC00D36929 /* tvProgressAnimatable.swift in Sources */,
 				95ED78771CDB8FE600D36929 /* tvLoaderType.swift in Sources */,
