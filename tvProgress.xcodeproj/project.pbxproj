@@ -10,6 +10,12 @@
 		958834A41CDB88AE007509F4 /* tvProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 958834A31CDB88AE007509F4 /* tvProgress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		958834AB1CDB88AE007509F4 /* tvProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958834A01CDB88AD007509F4 /* tvProgress.framework */; };
 		958834B01CDB88AE007509F4 /* tvProgressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958834AF1CDB88AE007509F4 /* tvProgressTests.swift */; };
+		95ED78671CDB8C0700D36929 /* tvProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78661CDB8C0700D36929 /* tvProgress.swift */; };
+		95ED78691CDB8D0900D36929 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95ED78681CDB8D0900D36929 /* icons.xcassets */; };
+		95ED78711CDB8ECC00D36929 /* tvProgressAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78701CDB8ECC00D36929 /* tvProgressAnimatable.swift */; };
+		95ED78731CDB8EEA00D36929 /* tvLoaderAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78721CDB8EEA00D36929 /* tvLoaderAnimatable.swift */; };
+		95ED78751CDB8F7000D36929 /* tvProgressTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78741CDB8F7000D36929 /* tvProgressTypes.swift */; };
+		95ED78771CDB8FE600D36929 /* tvLoaderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78761CDB8FE600D36929 /* tvLoaderTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,12 @@
 		958834AA1CDB88AE007509F4 /* tvProgressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tvProgressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		958834AF1CDB88AE007509F4 /* tvProgressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvProgressTests.swift; sourceTree = "<group>"; };
 		958834B11CDB88AE007509F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95ED78661CDB8C0700D36929 /* tvProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tvProgress.swift; sourceTree = "<group>"; };
+		95ED78681CDB8D0900D36929 /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
+		95ED78701CDB8ECC00D36929 /* tvProgressAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvProgressAnimatable.swift; path = Progress/tvProgressAnimatable.swift; sourceTree = "<group>"; };
+		95ED78721CDB8EEA00D36929 /* tvLoaderAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvLoaderAnimatable.swift; path = Loader/tvLoaderAnimatable.swift; sourceTree = "<group>"; };
+		95ED78741CDB8F7000D36929 /* tvProgressTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvProgressTypes.swift; path = Progress/tvProgressTypes.swift; sourceTree = "<group>"; };
+		95ED78761CDB8FE600D36929 /* tvLoaderTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvLoaderTypes.swift; path = Loader/tvLoaderTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +83,14 @@
 		958834A21CDB88AE007509F4 /* tvProgress */ = {
 			isa = PBXGroup;
 			children = (
+				95ED786D1CDB8D9D00D36929 /* Error */,
+				95ED786C1CDB8D9500D36929 /* Success */,
+				95ED786B1CDB8D8500D36929 /* Progress */,
+				95ED786A1CDB8D7F00D36929 /* Loader */,
 				958834A31CDB88AE007509F4 /* tvProgress.h */,
 				958834A51CDB88AE007509F4 /* Info.plist */,
+				95ED78661CDB8C0700D36929 /* tvProgress.swift */,
+				95ED78681CDB8D0900D36929 /* icons.xcassets */,
 			);
 			path = tvProgress;
 			sourceTree = "<group>";
@@ -84,6 +102,38 @@
 				958834B11CDB88AE007509F4 /* Info.plist */,
 			);
 			path = tvProgressTests;
+			sourceTree = "<group>";
+		};
+		95ED786A1CDB8D7F00D36929 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				95ED78721CDB8EEA00D36929 /* tvLoaderAnimatable.swift */,
+				95ED78761CDB8FE600D36929 /* tvLoaderTypes.swift */,
+			);
+			name = Loader;
+			sourceTree = "<group>";
+		};
+		95ED786B1CDB8D8500D36929 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				95ED78701CDB8ECC00D36929 /* tvProgressAnimatable.swift */,
+				95ED78741CDB8F7000D36929 /* tvProgressTypes.swift */,
+			);
+			name = Progress;
+			sourceTree = "<group>";
+		};
+		95ED786C1CDB8D9500D36929 /* Success */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Success;
+			sourceTree = "<group>";
+		};
+		95ED786D1CDB8D9D00D36929 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95ED78691CDB8D0900D36929 /* icons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +245,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95ED78751CDB8F7000D36929 /* tvProgressTypes.swift in Sources */,
+				95ED78711CDB8ECC00D36929 /* tvProgressAnimatable.swift in Sources */,
+				95ED78771CDB8FE600D36929 /* tvLoaderTypes.swift in Sources */,
+				95ED78731CDB8EEA00D36929 /* tvLoaderAnimatable.swift in Sources */,
+				95ED78671CDB8C0700D36929 /* tvProgress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +364,7 @@
 		958834B51CDB88AE007509F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -318,12 +375,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tvProgress.tvProgress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		958834B61CDB88AE007509F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -376,6 +435,7 @@
 				958834B61CDB88AE007509F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		958834B71CDB88AE007509F4 /* Build configuration list for PBXNativeTarget "tvProgressTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +444,7 @@
 				958834B91CDB88AE007509F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
