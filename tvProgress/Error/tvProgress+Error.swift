@@ -1,5 +1,5 @@
 //
-//  tvProgressTypes.swift
+//  tvProgress+Error.swift
 //  tvProgress
 //
 //  Created by Cédric Eugeni on 05/05/2016.
@@ -8,7 +8,8 @@
 
 import Foundation
 
-enum tvProgressTypes {
-    case Default()
-    case Custom(cl: tvProgressAnimatable.Type)
+extension tvProgress {
+    func showErrorWithStatus(status: String) -> Void {
+        //TODO: - Implementation
+    }
 }

@@ -9,5 +9,14 @@
 import UIKit
 
 class tvProgress: UIView {
-
+    var isVisible: Bool = false
+    var style: tvProgressStyle = .Light
+    
+    func dismiss() -> Void {
+        //TODO: - Implementation
+    }
+    
+    func dismissWithDelay(delay: Double) -> Void {
+        //TODO: - Implementation
+    }
 }

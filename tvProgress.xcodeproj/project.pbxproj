@@ -14,8 +14,14 @@
 		95ED78691CDB8D0900D36929 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95ED78681CDB8D0900D36929 /* icons.xcassets */; };
 		95ED78711CDB8ECC00D36929 /* tvProgressAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78701CDB8ECC00D36929 /* tvProgressAnimatable.swift */; };
 		95ED78731CDB8EEA00D36929 /* tvLoaderAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78721CDB8EEA00D36929 /* tvLoaderAnimatable.swift */; };
-		95ED78751CDB8F7000D36929 /* tvProgressTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78741CDB8F7000D36929 /* tvProgressTypes.swift */; };
-		95ED78771CDB8FE600D36929 /* tvLoaderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78761CDB8FE600D36929 /* tvLoaderTypes.swift */; };
+		95ED78751CDB8F7000D36929 /* tvProgressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78741CDB8F7000D36929 /* tvProgressType.swift */; };
+		95ED78771CDB8FE600D36929 /* tvLoaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78761CDB8FE600D36929 /* tvLoaderType.swift */; };
+		95ED78791CDB955900D36929 /* tvProgress+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78781CDB955900D36929 /* tvProgress+Loader.swift */; };
+		95ED787B1CDB959300D36929 /* tvProgress+Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED787A1CDB959300D36929 /* tvProgress+Progress.swift */; };
+		95ED787D1CDB96E000D36929 /* tvProgress+Success.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED787C1CDB96E000D36929 /* tvProgress+Success.swift */; };
+		95ED787F1CDB971700D36929 /* tvProgress+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED787E1CDB971700D36929 /* tvProgress+Error.swift */; };
+		95ED78821CDB97EE00D36929 /* tvProgress+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78811CDB97EE00D36929 /* tvProgress+Appearance.swift */; };
+		95ED78841CDB982000D36929 /* tvProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78831CDB982000D36929 /* tvProgressStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +45,14 @@
 		95ED78681CDB8D0900D36929 /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
 		95ED78701CDB8ECC00D36929 /* tvProgressAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvProgressAnimatable.swift; path = Progress/tvProgressAnimatable.swift; sourceTree = "<group>"; };
 		95ED78721CDB8EEA00D36929 /* tvLoaderAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvLoaderAnimatable.swift; path = Loader/tvLoaderAnimatable.swift; sourceTree = "<group>"; };
-		95ED78741CDB8F7000D36929 /* tvProgressTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvProgressTypes.swift; path = Progress/tvProgressTypes.swift; sourceTree = "<group>"; };
-		95ED78761CDB8FE600D36929 /* tvLoaderTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvLoaderTypes.swift; path = Loader/tvLoaderTypes.swift; sourceTree = "<group>"; };
+		95ED78741CDB8F7000D36929 /* tvProgressType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvProgressType.swift; path = Progress/tvProgressType.swift; sourceTree = "<group>"; };
+		95ED78761CDB8FE600D36929 /* tvLoaderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvLoaderType.swift; path = Loader/tvLoaderType.swift; sourceTree = "<group>"; };
+		95ED78781CDB955900D36929 /* tvProgress+Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "tvProgress+Loader.swift"; path = "Loader/tvProgress+Loader.swift"; sourceTree = "<group>"; };
+		95ED787A1CDB959300D36929 /* tvProgress+Progress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "tvProgress+Progress.swift"; path = "Progress/tvProgress+Progress.swift"; sourceTree = "<group>"; };
+		95ED787C1CDB96E000D36929 /* tvProgress+Success.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "tvProgress+Success.swift"; path = "Success/tvProgress+Success.swift"; sourceTree = "<group>"; };
+		95ED787E1CDB971700D36929 /* tvProgress+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "tvProgress+Error.swift"; path = "Error/tvProgress+Error.swift"; sourceTree = "<group>"; };
+		95ED78811CDB97EE00D36929 /* tvProgress+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "tvProgress+Appearance.swift"; path = "Appearance/tvProgress+Appearance.swift"; sourceTree = "<group>"; };
+		95ED78831CDB982000D36929 /* tvProgressStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvProgressStyle.swift; path = Appearance/tvProgressStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +95,7 @@
 		958834A21CDB88AE007509F4 /* tvProgress */ = {
 			isa = PBXGroup;
 			children = (
+				95ED78801CDB97A200D36929 /* Appearance */,
 				95ED786D1CDB8D9D00D36929 /* Error */,
 				95ED786C1CDB8D9500D36929 /* Success */,
 				95ED786B1CDB8D8500D36929 /* Progress */,
@@ -108,7 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				95ED78721CDB8EEA00D36929 /* tvLoaderAnimatable.swift */,
-				95ED78761CDB8FE600D36929 /* tvLoaderTypes.swift */,
+				95ED78761CDB8FE600D36929 /* tvLoaderType.swift */,
+				95ED78781CDB955900D36929 /* tvProgress+Loader.swift */,
 			);
 			name = Loader;
 			sourceTree = "<group>";
@@ -117,7 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				95ED78701CDB8ECC00D36929 /* tvProgressAnimatable.swift */,
-				95ED78741CDB8F7000D36929 /* tvProgressTypes.swift */,
+				95ED78741CDB8F7000D36929 /* tvProgressType.swift */,
+				95ED787A1CDB959300D36929 /* tvProgress+Progress.swift */,
 			);
 			name = Progress;
 			sourceTree = "<group>";
@@ -125,6 +140,7 @@
 		95ED786C1CDB8D9500D36929 /* Success */ = {
 			isa = PBXGroup;
 			children = (
+				95ED787C1CDB96E000D36929 /* tvProgress+Success.swift */,
 			);
 			name = Success;
 			sourceTree = "<group>";
@@ -132,8 +148,18 @@
 		95ED786D1CDB8D9D00D36929 /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				95ED787E1CDB971700D36929 /* tvProgress+Error.swift */,
 			);
 			name = Error;
+			sourceTree = "<group>";
+		};
+		95ED78801CDB97A200D36929 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				95ED78811CDB97EE00D36929 /* tvProgress+Appearance.swift */,
+				95ED78831CDB982000D36929 /* tvProgressStyle.swift */,
+			);
+			name = Appearance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,11 +271,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95ED78751CDB8F7000D36929 /* tvProgressTypes.swift in Sources */,
+				95ED78821CDB97EE00D36929 /* tvProgress+Appearance.swift in Sources */,
+				95ED78751CDB8F7000D36929 /* tvProgressType.swift in Sources */,
 				95ED78711CDB8ECC00D36929 /* tvProgressAnimatable.swift in Sources */,
-				95ED78771CDB8FE600D36929 /* tvLoaderTypes.swift in Sources */,
+				95ED78771CDB8FE600D36929 /* tvLoaderType.swift in Sources */,
+				95ED787B1CDB959300D36929 /* tvProgress+Progress.swift in Sources */,
 				95ED78731CDB8EEA00D36929 /* tvLoaderAnimatable.swift in Sources */,
 				95ED78671CDB8C0700D36929 /* tvProgress.swift in Sources */,
+				95ED787D1CDB96E000D36929 /* tvProgress+Success.swift in Sources */,
+				95ED787F1CDB971700D36929 /* tvProgress+Error.swift in Sources */,
+				95ED78841CDB982000D36929 /* tvProgressStyle.swift in Sources */,
+				95ED78791CDB955900D36929 /* tvProgress+Loader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

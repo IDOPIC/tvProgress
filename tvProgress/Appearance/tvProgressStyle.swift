@@ -1,5 +1,5 @@
 //
-//  tvLoaderTypes.swift
+//  tvProgressStyle.swift
 //  tvProgress
 //
 //  Created by Cédric Eugeni on 05/05/2016.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum tvLoaderTypes {
-    case Default()
-    case Custom(cl: tvLoaderAnimatable.Type)
+enum tvProgressStyle {
+    case Dark
+    case Light
 }

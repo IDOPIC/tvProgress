@@ -9,5 +9,5 @@
 import Foundation
 
 protocol tvLoaderAnimatable: class {
-    
+    init(frame: CGRect)
 }

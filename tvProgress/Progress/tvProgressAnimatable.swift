@@ -9,5 +9,5 @@
 import Foundation
 
 protocol tvProgressAnimatable: class {
-    
+    init(frame: CGRect)
 }
