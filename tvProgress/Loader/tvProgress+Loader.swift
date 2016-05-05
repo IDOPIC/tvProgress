@@ -9,6 +9,17 @@
 import Foundation
 
 extension tvProgress {
+    //MARK: - Properties
+    public var loaderType: tvLoaderType? {
+        get {
+            return self.loaderType ?? .Default()
+        }
+        set(newLoader) {
+            self.loaderType = newLoader ?? .Default()
+        }
+    }
+    
+    //MARK: - Methods
     func show() -> Void {
         //TODO: - Implementation
     }

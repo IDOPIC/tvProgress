@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol tvLoaderAnimatable: class {
+public protocol tvLoaderAnimatable: class {
     init(frame: CGRect)
     func configureWithStyle(style: tvProgressStyle) -> Void
 }

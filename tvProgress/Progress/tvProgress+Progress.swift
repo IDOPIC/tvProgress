@@ -9,6 +9,17 @@
 import Foundation
 
 extension tvProgress {
+    //MARK: - Properties
+    public var progressType: tvProgressType? {
+        get {
+            return self.progressType ?? .Default()
+        }
+        set(newProgress) {
+            self.progressType = newProgress ?? .Default()
+        }
+    }
+    
+    //MARK: - Methods
     func showProgress(progress: Double) -> Void {
         //TODO: - Implementation
     }

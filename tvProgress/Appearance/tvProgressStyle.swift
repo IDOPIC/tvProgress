@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum tvProgressStyle {
+public enum tvProgressStyle {
     case Dark
     case Light
 }

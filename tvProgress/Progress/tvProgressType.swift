@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum tvProgressType {
+public enum tvProgressType {
     case Default()
     case Custom(cl: tvProgressAnimatable.Type)
     

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol tvProgressAnimatable: class {
+public protocol tvProgressAnimatable: class {
     init(frame: CGRect)
 }

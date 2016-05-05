@@ -8,23 +8,19 @@
 
 import UIKit
 
-class tvProgress: UIView {
+public class tvProgress: UIView {
     //MARK: - Properties
-    var isVisible: Bool = false
-    var style: tvProgressStyle = .Light
-    var loaderType: tvLoaderType = .Default()
-    var progressType: tvProgressType = .Default()
-    var font: UIFont = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
-    var successImage: UIImage = UIImage(named: "ic_success")!.imageWithRenderingMode(.AlwaysTemplate)
-    var errorImage: UIImage = UIImage(named: "ic_error")!.imageWithRenderingMode(.AlwaysTemplate)
-    var minimumDismissDuration: Double = 5
-    var fadeInAnimationDuration: Double = 0.15
-    var fadeOutAnimationDuration: Double = 0.15
+    private var _isVisible: Bool = false
+    public var isVisible: Bool {
+        get {
+            return _isVisible
+        }
+    }
     
     //MARK: - Singleton
     static let sharedInstance: tvProgress = {
         let instance = tvProgress()
-        
+
         instance.frame = UIScreen.mainScreen().bounds
         instance.alpha = 0
         instance.userInteractionEnabled = false

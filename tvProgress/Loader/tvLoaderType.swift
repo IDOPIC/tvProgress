@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum tvLoaderType {
+public enum tvLoaderType {
     case Default()
     case Custom(cl: tvLoaderAnimatable.Type, width: CGFloat, height: CGFloat)
     
