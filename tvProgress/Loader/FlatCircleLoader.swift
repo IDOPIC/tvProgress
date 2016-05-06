@@ -13,7 +13,7 @@ class FlatCircleLoader: tvLoaderAnimatable {
     required init() {
     }
     
-    func configureWithStyle(style: tvProgressStyle) -> UIView {
+    func configureWithStyle(style: tvProgressStyle) -> (view: UIView, completion: () -> Void) {
         let v: UIView = UIView(frame: CGRectMake(0, 0, 100, 100))
         
         let bounds = v.frame
@@ -49,6 +49,10 @@ class FlatCircleLoader: tvLoaderAnimatable {
         
         rectShape.addAnimation(group, forKey: nil)
         
-        return v
+        let completion: () -> Void = {
+            rectShape.removeAllAnimations()
+        }
+        
+        return (v, completion)
     }
 }

@@ -12,7 +12,7 @@ public enum tvLoaderType {
     case Default()
     case Custom(cl: tvLoaderAnimatable.Type)
     
-    func getInstance(style: tvProgressStyle, frame: CGRect = CGRectZero) -> UIView? {
+    func getInstance(style: tvProgressStyle, frame: CGRect = CGRectZero) -> (UIView, () -> Void) {
         switch self {
         case .Default:
             let loader: FlatCircleLoader = FlatCircleLoader.init()

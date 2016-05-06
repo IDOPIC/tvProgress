@@ -25,6 +25,7 @@ public class tvProgress: UIView {
             return _isVisible
         }
     }
+    internal var finishLoaderCompletion: (() -> Void)?
     
     //MARK: - Singleton
     static let sharedInstance: tvProgress = {
@@ -52,6 +53,7 @@ public class tvProgress: UIView {
                     for v in instance.subviews where !(v is UIVisualEffectView){
                         v.removeFromSuperview()
                     }
+                    instance.finishLoaderCompletion?()
                     instance.removeFromSuperview()
                     instance._isVisible = false
                 }

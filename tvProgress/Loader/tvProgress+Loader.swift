@@ -29,9 +29,11 @@ public extension tvProgress {
                 let blurEffect: UIBlurEffect = UIBlurEffect(style: (style ?? instance.style).blurStyle)
                 instance._blurView?.effect = blurEffect
                 
-                let loaderView: UIView = (loaderType ?? instance.loaderType).getInstance(style ?? instance.style) ?? UIView(frame: CGRectZero)
+                let loader: (view: UIView, completion: () -> Void) = (loaderType ?? instance.loaderType).getInstance(style ?? instance.style)
+                let loaderView: UIView = loader.0
                 loaderView.frame = CGRectMake(instance.center.x - (loaderView.frame.width / 2), instance.center.y - (loaderView.frame.height / 2), loaderView.frame.width, loaderView.frame.height)
                 instance.addSubview(loaderView)
+                instance.finishLoaderCompletion = loader.completion
                 
                 if (status != .None) {
                     let statusLabel: UILabel = UILabel()
