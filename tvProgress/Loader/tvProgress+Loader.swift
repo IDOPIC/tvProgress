@@ -20,7 +20,7 @@ public extension tvProgress {
     }
     
     //MARK: - Methods
-    public static func show(status: String? = .None, loaderType: tvLoaderType? = .None, style: tvProgressStyle? = nil) -> Void {
+    public static func show(status: String? = .None,loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = nil) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
             if !instance._isVisible {
@@ -29,7 +29,7 @@ public extension tvProgress {
                 let blurEffect: UIBlurEffect = UIBlurEffect(style: (style ?? instance.style).blurStyle)
                 instance._blurView?.effect = blurEffect
                 
-                let loader: (view: UIView, completion: () -> Void) = (loaderType ?? instance.loaderType).getInstance(style ?? instance.style)
+                let loader: (view: UIView, completion: () -> Void) = (lt ?? instance.loaderType).getInstance(style ?? instance.style)
                 let loaderView: UIView = loader.0
                 loaderView.frame = CGRectMake(instance.center.x - (loaderView.frame.width / 2), instance.center.y - (loaderView.frame.height / 2), loaderView.frame.width, loaderView.frame.height)
                 instance.addSubview(loaderView)

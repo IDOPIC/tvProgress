@@ -10,12 +10,16 @@ import Foundation
 
 public enum tvLoaderType {
     case Default()
+    case AndroidStyle()
     case Custom(cl: tvLoaderAnimatable.Type)
     
     func getInstance(style: tvProgressStyle, frame: CGRect = CGRectZero) -> (UIView, () -> Void) {
         switch self {
         case .Default:
             let loader: FlatCircleLoader = FlatCircleLoader.init()
+            return loader.configureWithStyle(style)
+        case .AndroidStyle():
+            let loader: AndroidStyleLoader = AndroidStyleLoader.init()
             return loader.configureWithStyle(style)
         case .Custom(let cl):
             let loader: tvLoaderAnimatable = cl.init()

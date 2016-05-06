@@ -54,6 +54,7 @@ public class tvProgress: UIView {
                         v.removeFromSuperview()
                     }
                     instance.finishLoaderCompletion?()
+                    instance.finishLoaderCompletion = nil
                     instance.removeFromSuperview()
                     instance._isVisible = false
                 }

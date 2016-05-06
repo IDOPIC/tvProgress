@@ -45,11 +45,11 @@ class FlatCircleLoader: tvLoaderAnimatable {
         group.animations = [start, an]
         group.duration = 2
         group.autoreverses = false
-        group.repeatCount = HUGE
+        group.repeatCount = HUGE //infinite
         
         rectShape.addAnimation(group, forKey: nil)
         
-        let completion: () -> Void = {
+        let completion: () -> Void = { () -> Void in
             rectShape.removeAllAnimations()
         }
         

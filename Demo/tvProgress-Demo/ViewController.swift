@@ -46,6 +46,12 @@ class ViewController: UIViewController {
         NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
     }
     
+    @IBAction func showAndroidStyleActionOutlet(sender: AnyObject) {
+        tvProgress.show(loaderType: tvLoaderType.AndroidStyle(), style: tvProgressStyle.Dark)
+        
+        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
+    }
+    
     func dismissAction() {
         debugPrint("dismiss")
         tvProgress.dismiss()

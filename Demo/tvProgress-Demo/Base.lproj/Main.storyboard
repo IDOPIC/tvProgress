@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -46,6 +46,14 @@
                                 <state key="normal" title="Show with status and dark style"/>
                                 <connections>
                                     <action selector="showWithStatusAndStyleAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="cFj-NW-zHh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c38-wS-0gh">
+                                <rect key="frame" x="323" y="714" width="689" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Show Android Style With Dark Style"/>
+                                <connections>
+                                    <action selector="showAndroidStyleActionOutlet:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="v3o-wo-oWX"/>
                                 </connections>
                             </button>
                         </subviews>
