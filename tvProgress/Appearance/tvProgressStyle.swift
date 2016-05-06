@@ -13,7 +13,7 @@ public enum tvProgressStyle {
     case Light
     case Custom(mainColor: UIColor, secondaryColor: UIColor)
     
-    var mainColor: UIColor {
+    public var mainColor: UIColor {
         switch self {
         case .Dark:
             return UIColor.whiteColor()
@@ -24,7 +24,7 @@ public enum tvProgressStyle {
         }
     }
     
-    var secondaryColor: UIColor {
+    public var secondaryColor: UIColor {
         switch self {
         case .Dark:
             return UIColor.blackColor()
@@ -35,7 +35,7 @@ public enum tvProgressStyle {
         }
     }
     
-    var blurStyle: UIBlurEffectStyle {
+    public var blurStyle: UIBlurEffectStyle {
         switch self {
         case .Dark:
             return .Dark

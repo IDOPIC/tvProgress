@@ -15,6 +15,7 @@
 		95ED78431CDB895500D36929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95ED78421CDB895500D36929 /* Assets.xcassets */; };
 		95ED784E1CDB895500D36929 /* tvProgress_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED784D1CDB895500D36929 /* tvProgress_DemoTests.swift */; };
 		95ED78591CDB895500D36929 /* tvProgress_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78581CDB895500D36929 /* tvProgress_DemoUITests.swift */; };
+		EC2057B41CDCC67F003EF294 /* SweebiLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2057B31CDCC67F003EF294 /* SweebiLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		95ED78581CDB895500D36929 /* tvProgress_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvProgress_DemoUITests.swift; sourceTree = "<group>"; };
 		95ED785A1CDB895500D36929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC2057A51CDBF551003EF294 /* tvProgress.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = tvProgress.xcodeproj; path = ../../tvProgress.xcodeproj; sourceTree = "<group>"; };
+		EC2057B31CDCC67F003EF294 /* SweebiLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweebiLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				EC2057A51CDBF551003EF294 /* tvProgress.xcodeproj */,
+				EC2057B31CDCC67F003EF294 /* SweebiLoader.swift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2057B41CDCC67F003EF294 /* SweebiLoader.swift in Sources */,
 				95ED783E1CDB895500D36929 /* ViewController.swift in Sources */,
 				95ED783C1CDB895500D36929 /* AppDelegate.swift in Sources */,
 			);

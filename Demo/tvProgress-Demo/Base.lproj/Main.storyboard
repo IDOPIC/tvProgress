@@ -56,6 +56,14 @@
                                     <action selector="showAndroidStyleActionOutlet:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="v3o-wo-oWX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5q-wF-Wkn">
+                                <rect key="frame" x="1053" y="714" width="342" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Custom Loader"/>
+                                <connections>
+                                    <action selector="customLoaderButtonAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="OHn-lb-cxK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

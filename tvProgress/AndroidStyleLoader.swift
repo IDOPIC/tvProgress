@@ -47,7 +47,7 @@ class AndroidStyleLoader: tvLoaderAnimatable {
         secondStepStart.fromValue = firstStepStart.toValue
         secondStepStart.toValue = 0.40
         secondStepStart.beginTime = firstStepStart.beginTime + firstStepStart.duration
-        secondStepStart.duration = 0.76
+        secondStepStart.duration = 0.5
         
         let secondStepEnd: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         secondStepEnd.fromValue = firstStepEnd.toValue
