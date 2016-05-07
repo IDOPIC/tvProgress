@@ -72,6 +72,14 @@
                                     <action selector="showSuccessMessageAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="GcD-BE-zgY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ks-LZ-r2e">
+                                <rect key="frame" x="1058" y="881" width="269" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Show Error"/>
+                                <connections>
+                                    <action selector="showErrorMessageAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="ugi-JK-rbW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

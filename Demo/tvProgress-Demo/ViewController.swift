@@ -62,6 +62,9 @@ class ViewController: UIViewController {
         tvProgress.showSuccessWithStatus("This is a success")
     }
     
+    @IBAction func showErrorMessageAction(sender: AnyObject) {
+        tvProgress.showErrorWithStatus("This is an error")
+    }
     
     func dismissAction() {
         debugPrint("dismiss")

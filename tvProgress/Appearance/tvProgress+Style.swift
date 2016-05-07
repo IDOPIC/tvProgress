@@ -39,10 +39,12 @@ public extension tvProgress {
     
     public var errorImage: UIImage! {
         get {
-            return self._errorImage ?? UIImage(named: "ic_error")!.imageWithRenderingMode(.AlwaysTemplate)
+            return self._errorImage ?? UIImage(named: "ic_error", inBundle: NSBundle(forClass: tvProgress.self), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
+
         }
         set(newImage) {
-            self._errorImage = newImage ?? UIImage(named: "ic_error")!.imageWithRenderingMode(.AlwaysTemplate)
+            self._errorImage = newImage ?? UIImage(named: "ic_error", inBundle: NSBundle(forClass: tvProgress.self), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
+
         }
     }
     

@@ -9,7 +9,18 @@
 import Foundation
 
 extension tvProgress {
-    func showErrorWithStatus(status: String) -> Void {
-        //TODO: - Implementation
+    //MARK: - Methods
+    public static func showErrorWithStatus(status: String, errorImage ei: UIImage? = .None, style: tvProgressStyle? = .None) -> Void {
+        let instance: tvProgress = tvProgress.sharedInstance
+        if !instance._isVisible {
+            let errorIm: UIImage = ei ?? instance.errorImage
+            let errorImageView: UIImageView = UIImageView(frame: CGRectMake(instance.center.x - errorIm.size.width / 2, instance.center.y - errorIm.size.height / 2, errorIm.size.width, errorIm.size.height))
+            errorImageView.image = errorIm
+            errorImageView.tintColor = (style ?? tvProgressStyle.Light).mainColor
+            
+            tvProgress.showWithStatus(status, view: errorImageView, style: style)
+            
+            NSTimer.scheduledTimerWithTimeInterval(tvProgress.displayDurationForString(status), target: self, selector: #selector(dismiss), userInfo: nil, repeats: false)
+        }
     }
 }
