@@ -30,10 +30,10 @@ public extension tvProgress {
     
     public var successImage: UIImage! {
         get {
-            return self._successImage ?? UIImage(named: "ic_success")!.imageWithRenderingMode(.AlwaysTemplate)
+            return self._successImage ?? UIImage(named: "ic_success", inBundle: NSBundle(forClass: tvProgress.self), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
         }
         set(newImage) {
-            self._successImage = newImage ?? UIImage(named: "ic_success")!.imageWithRenderingMode(.AlwaysTemplate)
+            self._successImage = newImage ?? UIImage(named: "ic_success", inBundle: NSBundle(forClass: tvProgress.self), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
         }
     }
     

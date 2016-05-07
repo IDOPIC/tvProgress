@@ -20,7 +20,7 @@ public extension tvProgress {
     }
     
     //MARK: - Methods
-    public static func show(status: String? = .None,loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = nil) -> Void {
+    public static func show(status: String? = .None, loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = .None) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
             if !instance._isVisible {

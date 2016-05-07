@@ -137,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				EC2057A41CDBF537003EF294 /* Frameworks */,
+				EC2057B31CDCC67F003EF294 /* SweebiLoader.swift */,
 				95ED783B1CDB895500D36929 /* AppDelegate.swift */,
 				95ED783D1CDB895500D36929 /* ViewController.swift */,
 				95ED783F1CDB895500D36929 /* Main.storyboard */,
@@ -168,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				EC2057A51CDBF551003EF294 /* tvProgress.xcodeproj */,
-				EC2057B31CDCC67F003EF294 /* SweebiLoader.swift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

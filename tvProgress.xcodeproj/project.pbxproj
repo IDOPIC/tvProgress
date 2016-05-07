@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		954F527F1CDD4EA30080805E /* AndroidStyleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954F527E1CDD4EA30080805E /* AndroidStyleLoader.swift */; };
 		958834A41CDB88AE007509F4 /* tvProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 958834A31CDB88AE007509F4 /* tvProgress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		958834AB1CDB88AE007509F4 /* tvProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958834A01CDB88AD007509F4 /* tvProgress.framework */; };
 		958834B01CDB88AE007509F4 /* tvProgressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958834AF1CDB88AE007509F4 /* tvProgressTests.swift */; };
@@ -23,7 +24,6 @@
 		95ED78821CDB97EE00D36929 /* tvProgress+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78811CDB97EE00D36929 /* tvProgress+Style.swift */; };
 		95ED78841CDB982000D36929 /* tvProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78831CDB982000D36929 /* tvProgressStyle.swift */; };
 		95ED78901CDBB15900D36929 /* FlatCircleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED788F1CDBB15900D36929 /* FlatCircleLoader.swift */; };
-		EC2057B21CDCA45F003EF294 /* AndroidStyleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2057B11CDCA45F003EF294 /* AndroidStyleLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		954F527E1CDD4EA30080805E /* AndroidStyleLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AndroidStyleLoader.swift; path = Loader/AndroidStyleLoader.swift; sourceTree = "<group>"; };
 		958834A01CDB88AD007509F4 /* tvProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = tvProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		958834A31CDB88AE007509F4 /* tvProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tvProgress.h; sourceTree = "<group>"; };
 		958834A51CDB88AE007509F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		95ED78811CDB97EE00D36929 /* tvProgress+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "tvProgress+Style.swift"; path = "Appearance/tvProgress+Style.swift"; sourceTree = "<group>"; };
 		95ED78831CDB982000D36929 /* tvProgressStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvProgressStyle.swift; path = Appearance/tvProgressStyle.swift; sourceTree = "<group>"; };
 		95ED788F1CDBB15900D36929 /* FlatCircleLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlatCircleLoader.swift; path = Loader/FlatCircleLoader.swift; sourceTree = "<group>"; };
-		EC2057B11CDCA45F003EF294 /* AndroidStyleLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndroidStyleLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,11 +124,11 @@
 		95ED786A1CDB8D7F00D36929 /* Loader */ = {
 			isa = PBXGroup;
 			children = (
+				954F527E1CDD4EA30080805E /* AndroidStyleLoader.swift */,
 				95ED78721CDB8EEA00D36929 /* tvLoaderAnimatable.swift */,
 				95ED78761CDB8FE600D36929 /* tvLoaderType.swift */,
 				95ED78781CDB955900D36929 /* tvProgress+Loader.swift */,
 				95ED788F1CDBB15900D36929 /* FlatCircleLoader.swift */,
-				EC2057B11CDCA45F003EF294 /* AndroidStyleLoader.swift */,
 			);
 			name = Loader;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 				95ED78901CDBB15900D36929 /* FlatCircleLoader.swift in Sources */,
 				95ED78751CDB8F7000D36929 /* tvProgressType.swift in Sources */,
 				95ED78711CDB8ECC00D36929 /* tvProgressAnimatable.swift in Sources */,
-				EC2057B21CDCA45F003EF294 /* AndroidStyleLoader.swift in Sources */,
+				954F527F1CDD4EA30080805E /* AndroidStyleLoader.swift in Sources */,
 				95ED78771CDB8FE600D36929 /* tvLoaderType.swift in Sources */,
 				95ED787B1CDB959300D36929 /* tvProgress+Progress.swift in Sources */,
 				95ED78731CDB8EEA00D36929 /* tvLoaderAnimatable.swift in Sources */,

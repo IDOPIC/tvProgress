@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
     }
     
-    @IBAction func showAndroidStyleActionOutlet(sender: AnyObject) {
+    @IBAction func showAndroidStyleAction(sender: AnyObject) {
         tvProgress.show(loaderType: tvLoaderType.AndroidStyle(), style: tvProgressStyle.Dark)
         
         NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
@@ -56,6 +56,10 @@ class ViewController: UIViewController {
         tvProgress.show(loaderType: tvLoaderType.Custom(cl: SweebiLoader.self), style: tvProgressStyle.Dark)
         
         NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
+    }
+    
+    @IBAction func showSuccessMessageAction(sender: AnyObject) {
+        tvProgress.showSuccessWithStatus("This is a success")
     }
     
     

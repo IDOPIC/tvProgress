@@ -61,4 +61,8 @@ public class tvProgress: UIView {
             }
         }
     }
+    
+    internal static func displayDurationForString(string: String) -> Double {
+        return max(Double(string.characters.count) * 0.06 + 0.5, tvProgress.sharedInstance.minimumDismissDuration)
+    }
 }
