@@ -23,14 +23,14 @@ public extension tvProgress {
     public static func show(status: String? = .None, loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = .None) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock() { () -> Void in
-        if !instance._isVisible {
-            let loader: (view: UIView, completion: () -> Void) = (lt ?? instance.loaderType).getInstance(style ?? instance.style)
-            let loaderView: UIView = loader.0
-            loaderView.frame = CGRectMake(instance.center.x - (loaderView.frame.width / 2), instance.center.y - (loaderView.frame.height / 2), loaderView.frame.width, loaderView.frame.height)
-            instance.finishLoaderCompletion = loader.completion
-            
-            tvProgress.showWithStatus(status, instance: instance, view: loaderView, style: style)
-        }
+            if !instance._isVisible {
+                let loader: (view: UIView, completion: () -> Void) = (lt ?? instance.loaderType).getInstance(style ?? instance.style)
+                let loaderView: UIView = loader.0
+                loaderView.frame = CGRectMake(instance.center.x - (loaderView.frame.width / 2), instance.center.y - (loaderView.frame.height / 2), loaderView.frame.width, loaderView.frame.height)
+                instance.finishLoaderCompletion = loader.completion
+                
+                tvProgress.showWithStatus(status, instance: instance, view: loaderView, style: style)
+            }
         }
     }
 }
