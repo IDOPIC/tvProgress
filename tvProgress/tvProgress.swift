@@ -66,49 +66,46 @@ public class tvProgress: UIView {
         return max(Double(string.characters.count) * 0.06 + 0.5, tvProgress.sharedInstance.minimumDismissDuration)
     }
     
-    internal static func showWithStatus(status: String? = .None, view v: UIView? = .None, style: tvProgressStyle? = .None) -> Void {
-        let instance: tvProgress = tvProgress.sharedInstance
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-            if !instance._isVisible {
-                instance._isVisible = true
-                
-                let blurEffect: UIBlurEffect = UIBlurEffect(style: (style ?? instance.style).blurStyle)
-                instance._blurView?.effect = blurEffect
-                
+    internal static func showWithStatus(status: String? = .None, instance: tvProgress, view v: UIView? = .None, style: tvProgressStyle? = .None) -> Void {
+        if !instance._isVisible {
+            instance._isVisible = true
+            
+            let blurEffect: UIBlurEffect = UIBlurEffect(style: (style ?? instance.style).blurStyle)
+            instance._blurView?.effect = blurEffect
+            
+            if let hudView = v {
+                instance.addSubview(hudView)
+            }
+            
+            if (status != .None) {
+                let statusLabel: UILabel = UILabel()
+                statusLabel.text = status
+                statusLabel.numberOfLines = 0
+                statusLabel.font = instance.font
+                statusLabel.backgroundColor = UIColor.clearColor()
+                statusLabel.textColor = (style ?? tvProgressStyle.Light).mainColor
+                statusLabel.sizeToFit()
+                var frame: CGRect!
                 if let hudView = v {
-                    instance.addSubview(hudView)
+                    frame = CGRectMake(instance.center.x - (statusLabel.frame.width / 2), hudView.frame.origin.y + hudView.frame.height + 30, statusLabel.frame.width, statusLabel.frame.height)
+                } else {
+                    frame = CGRectMake(instance.center.x - statusLabel.frame.size.width / 2, instance.center.y - statusLabel.frame.size.height / 2, statusLabel.frame.size.width, statusLabel.frame.size.height)
                 }
                 
-                if (status != .None) {
-                    let statusLabel: UILabel = UILabel()
-                    statusLabel.text = status
-                    statusLabel.numberOfLines = 0
-                    statusLabel.font = instance.font
-                    statusLabel.backgroundColor = UIColor.clearColor()
-                    statusLabel.textColor = (style ?? tvProgressStyle.Light).mainColor
-                    statusLabel.sizeToFit()
-                    var frame: CGRect!
-                    if let hudView = v {
-                        frame = CGRectMake(instance.center.x - (statusLabel.frame.width / 2), hudView.frame.origin.y + hudView.frame.height + 30, statusLabel.frame.width, statusLabel.frame.height)
-                    } else {
-                        frame = CGRectMake(instance.center.x - statusLabel.frame.size.width / 2, instance.center.y - statusLabel.frame.size.height / 2, statusLabel.frame.size.width, statusLabel.frame.size.height)
-                    }
+                statusLabel.frame = frame
+                instance.addSubview(statusLabel)
+            }
+            
+            let tabWindow: [UIWindow] = UIApplication.sharedApplication().windows
+            for w in tabWindow {
+                if (w.screen == UIScreen.mainScreen() && !w.hidden && w.alpha > 0 && w.windowLevel == UIWindowLevelNormal) {
+                    instance.alpha = 0
+                    w.addSubview(instance)
                     
-                    statusLabel.frame = frame
-                    instance.addSubview(statusLabel)
-                }
-                
-                let tabWindow: [UIWindow] = UIApplication.sharedApplication().windows
-                for w in tabWindow {
-                    if (w.screen == UIScreen.mainScreen() && !w.hidden && w.alpha > 0 && w.windowLevel == UIWindowLevelNormal) {
-                        instance.alpha = 0
-                        w.addSubview(instance)
-                        
-                        UIView.animateWithDuration(instance.fadeInAnimationDuration) { () -> Void in
-                            instance.alpha = 1
-                        }
-                        break;
+                    UIView.animateWithDuration(instance.fadeInAnimationDuration) { () -> Void in
+                        instance.alpha = 1
                     }
+                    break;
                 }
             }
         }
