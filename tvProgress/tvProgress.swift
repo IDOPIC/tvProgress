@@ -25,7 +25,9 @@ public class tvProgress: UIView {
             return _isVisible
         }
     }
-    internal var finishLoaderCompletion: (() -> Void)?
+    internal var _finishLoaderCompletion: (() -> Void)?
+    internal var _menuButtonPressClosure: (() -> Void)?
+    internal var _playPauseButtonPressClosure: (() -> Void)?
     
     //MARK: - Singleton
     static let sharedInstance: tvProgress = {
@@ -54,8 +56,8 @@ public class tvProgress: UIView {
                     for v in instance.subviews where !(v is UIVisualEffectView){
                         v.removeFromSuperview()
                     }
-                    instance.finishLoaderCompletion?()
-                    instance.finishLoaderCompletion = nil
+                    instance._finishLoaderCompletion?()
+                    instance._finishLoaderCompletion = nil
                     instance.removeFromSuperview()
                     instance._isVisible = false
                 }
@@ -71,6 +73,7 @@ public class tvProgress: UIView {
     internal static func showWithInstance(instance: tvProgress, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None) -> Void {
         if !instance._isVisible {
             instance._isVisible = true
+            instance.setEventCatch()
             
             let blurEffect: UIBlurEffect = UIBlurEffect(style: (style ?? instance.style).blurStyle)
             instance._blurView?.effect = blurEffect

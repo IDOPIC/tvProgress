@@ -28,7 +28,7 @@ public extension tvProgress {
                 let loader: (view: UIView, completion: () -> Void) = (lt ?? instance.loaderType).getInstance(style ?? instance.style)
                 let loaderView: UIView = loader.0
                 loaderView.frame = CGRectMake(instance.center.x - (loaderView.frame.width / 2), instance.center.y - (loaderView.frame.height / 2), loaderView.frame.width, loaderView.frame.height)
-                instance.finishLoaderCompletion = loader.completion
+                instance._finishLoaderCompletion = loader.completion
                 views.insert(loaderView, atIndex: 0)
                 
                 if let s = status {
