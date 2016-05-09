@@ -10,17 +10,7 @@ import UIKit
 import tvProgress
 
 class ViewController: UIViewController {
-    //MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //MARK: - IBActions
     @IBAction func showAction(sender: AnyObject) {
         tvProgress.show()
@@ -63,7 +53,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showErrorMessageAction(sender: AnyObject) {
-        tvProgress.showErrorWithStatus("This is an error")
+        tvProgress.showErrorWithStatus("This is an error", menuButtonDidPress: { () -> Void in
+            debugPrint("Menu button did press closure")
+        }) { () -> Void in
+            debugPrint("Play/Pause button did press closure")
+        }
     }
     
     @IBAction func showSuccessWithActionAction(sender: AnyObject) {

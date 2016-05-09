@@ -56,8 +56,11 @@ public class tvProgress: UIView {
                     for v in instance.subviews where !(v is UIVisualEffectView){
                         v.removeFromSuperview()
                     }
+                    instance.removeEventCatch()
+                    instance.menuButtonDidPress = .None
+                    instance.playPauseButtonDidPress = .None
                     instance._finishLoaderCompletion?()
-                    instance._finishLoaderCompletion = nil
+                    instance._finishLoaderCompletion = .None
                     instance.removeFromSuperview()
                     instance._isVisible = false
                 }
@@ -70,9 +73,11 @@ public class tvProgress: UIView {
         return max(Double(string.characters.count) * 0.06 + 0.5, tvProgress.sharedInstance.minimumDismissDuration)
     }
     
-    internal static func showWithInstance(instance: tvProgress, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None) -> Void {
+    internal static func showWithInstance(instance: tvProgress, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None, menuButtonDidPress: (() -> Void)?, playButtonDidPress: (() -> Void)?) -> Void {
         if !instance._isVisible {
             instance._isVisible = true
+            instance.menuButtonDidPress = menuButtonDidPress
+            instance.playPauseButtonDidPress = playButtonDidPress
             instance.setEventCatch()
             
             let blurEffect: UIBlurEffect = UIBlurEffect(style: (style ?? instance.style).blurStyle)
@@ -119,7 +124,6 @@ public class tvProgress: UIView {
                 return v
             }
         }
-        
         return self
     }
 }
