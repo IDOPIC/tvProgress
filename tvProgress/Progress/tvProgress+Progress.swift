@@ -20,11 +20,7 @@ extension tvProgress {
     }
     
     //MARK: - Methods
-    func showProgress(progress: Double) -> Void {
-        //TODO: - Implementation
-    }
-    
-    func showProgress(progress: Double, withStatus status: String) -> Void {
+    internal func showProgress(progress: Double) -> Void {
         //TODO: - Implementation
     }
 }
