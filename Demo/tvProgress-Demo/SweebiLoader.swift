@@ -23,7 +23,7 @@ class SweebiLoader: tvLoaderAnimatable {
         sweebiLogo.strokeColor = style.mainColor.CGColor
         sweebiLogo.fillColor = UIColor.clearColor().CGColor
         sweebiLogo.strokeStart = 0
-        sweebiLogo.strokeEnd = 2
+        sweebiLogo.strokeEnd = 1
         
         let bezier: UIBezierPath = UIBezierPath()
         bezier.moveToPoint(CGPoint(x: 90, y: 56))
@@ -42,13 +42,13 @@ class SweebiLoader: tvLoaderAnimatable {
         firstStepAnimation.fromValue = 0
         firstStepAnimation.toValue = 1
         firstStepAnimation.beginTime = 0
-        firstStepAnimation.duration = 1.5
+        firstStepAnimation.duration = 1
         
         let secondStepAnimation: CABasicAnimation = CABasicAnimation(keyPath: "strokeStart")
         secondStepAnimation.fromValue = 0
         secondStepAnimation.toValue = 1
-        secondStepAnimation.beginTime = 0.5
-        secondStepAnimation.duration = 1.5
+        secondStepAnimation.beginTime = 1
+        secondStepAnimation.duration = 1
         
         let animations: CAAnimationGroup = CAAnimationGroup()
         animations.animations = [firstStepAnimation, secondStepAnimation]
