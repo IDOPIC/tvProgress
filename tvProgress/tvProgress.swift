@@ -36,6 +36,7 @@ public class tvProgress: UIView {
         let blurEffect: UIBlurEffect = UIBlurEffect(style: instance.style.blurStyle)
         instance._blurView = UIVisualEffectView(frame: instance.frame)
         instance._blurView?.effect = blurEffect
+        instance.userInteractionEnabled = true
         
         instance.addSubview(instance._blurView!)
         
@@ -62,52 +63,60 @@ public class tvProgress: UIView {
         }
     }
     
+    //MARK: - Build anc Config Tools
     internal static func displayDurationForString(string: String) -> Double {
         return max(Double(string.characters.count) * 0.06 + 0.5, tvProgress.sharedInstance.minimumDismissDuration)
     }
     
-    internal static func showWithStatus(status: String? = .None, instance: tvProgress, view v: UIView? = .None, style: tvProgressStyle? = .None) -> Void {
+    internal static func showWithInstance(instance: tvProgress, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None) -> Void {
         if !instance._isVisible {
             instance._isVisible = true
             
             let blurEffect: UIBlurEffect = UIBlurEffect(style: (style ?? instance.style).blurStyle)
             instance._blurView?.effect = blurEffect
             
-            if let hudView = v {
-                instance.addSubview(hudView)
+            for view: UIView in views {
+                instance.addSubview(view)
             }
             
-            if (status != .None) {
-                let statusLabel: UILabel = UILabel()
-                statusLabel.text = status
-                statusLabel.numberOfLines = 0
-                statusLabel.font = instance.font
-                statusLabel.backgroundColor = UIColor.clearColor()
-                statusLabel.textColor = (style ?? tvProgressStyle.Light).mainColor
-                statusLabel.sizeToFit()
-                var frame: CGRect!
-                if let hudView = v {
-                    frame = CGRectMake(instance.center.x - (statusLabel.frame.width / 2), hudView.frame.origin.y + hudView.frame.height + 30, statusLabel.frame.width, statusLabel.frame.height)
-                } else {
-                    frame = CGRectMake(instance.center.x - statusLabel.frame.size.width / 2, instance.center.y - statusLabel.frame.size.height / 2, statusLabel.frame.size.width, statusLabel.frame.size.height)
-                }
-                
-                statusLabel.frame = frame
-                instance.addSubview(statusLabel)
-            }
-            
-            let tabWindow: [UIWindow] = UIApplication.sharedApplication().windows
-            for w in tabWindow {
-                if (w.screen == UIScreen.mainScreen() && !w.hidden && w.alpha > 0 && w.windowLevel == UIWindowLevelNormal) {
-                    instance.alpha = 0
-                    w.addSubview(instance)
-                    
-                    UIView.animateWithDuration(instance.fadeInAnimationDuration) { () -> Void in
-                        instance.alpha = 1
-                    }
-                    break;
-                }
+            instance.alpha = 0
+            let tmp: UIView = (UIApplication.sharedApplication().keyWindow?.subviews.last)!
+            tmp.addSubview(instance)
+            UIView.animateWithDuration(instance.fadeInAnimationDuration, animations: {
+                instance.alpha = 1
+                }, completion: { (finished) in
+                    debugPrint("completed animation")
+                    tmp.setNeedsFocusUpdate()
+                    tmp.updateFocusIfNeeded()
+            })
+        }
+    }
+    
+    internal static func generateStatusLabelWithInstance(instance: tvProgress, andStatus status: String, andStyle style: tvProgressStyle) -> UILabel {
+        let statusLabel: UILabel = UILabel()
+        
+        statusLabel.text = status
+        statusLabel.numberOfLines = 0
+        statusLabel.font = instance.font
+        statusLabel.backgroundColor = UIColor.clearColor()
+        statusLabel.textColor = style.mainColor
+        statusLabel.sizeToFit()
+        
+        return statusLabel
+    }
+    
+    //MARK: - Focus Engine
+    public override func canBecomeFocused() -> Bool {
+        return tvProgress.sharedInstance.isVisible
+    }
+    
+    public override var preferredFocusedView: UIView? {
+        for v in self.subviews {
+            if v is UIButton {
+                return v
             }
         }
+        
+        return self
     }
 }

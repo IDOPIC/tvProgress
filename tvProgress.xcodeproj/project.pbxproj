@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		954F527F1CDD4EA30080805E /* AndroidStyleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954F527E1CDD4EA30080805E /* AndroidStyleLoader.swift */; };
+		954F52971CE036560080805E /* UIButton+closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954F52961CE036560080805E /* UIButton+closure.swift */; };
 		958834A41CDB88AE007509F4 /* tvProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 958834A31CDB88AE007509F4 /* tvProgress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		958834AB1CDB88AE007509F4 /* tvProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958834A01CDB88AD007509F4 /* tvProgress.framework */; };
 		958834B01CDB88AE007509F4 /* tvProgressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958834AF1CDB88AE007509F4 /* tvProgressTests.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		954F527E1CDD4EA30080805E /* AndroidStyleLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AndroidStyleLoader.swift; path = Loader/AndroidStyleLoader.swift; sourceTree = "<group>"; };
+		954F52961CE036560080805E /* UIButton+closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+closure.swift"; path = "Extensions/UIButton+closure.swift"; sourceTree = "<group>"; };
 		958834A01CDB88AD007509F4 /* tvProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = tvProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		958834A31CDB88AE007509F4 /* tvProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tvProgress.h; sourceTree = "<group>"; };
 		958834A51CDB88AE007509F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		954F52951CE036310080805E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				954F52961CE036560080805E /* UIButton+closure.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		958834961CDB88AD007509F4 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		958834A21CDB88AE007509F4 /* tvProgress */ = {
 			isa = PBXGroup;
 			children = (
+				954F52951CE036310080805E /* Extensions */,
 				95ED78801CDB97A200D36929 /* Appearance */,
 				95ED786D1CDB8D9D00D36929 /* Error */,
 				95ED786C1CDB8D9500D36929 /* Success */,
@@ -290,6 +301,7 @@
 				95ED787F1CDB971700D36929 /* tvProgress+Error.swift in Sources */,
 				95ED78841CDB982000D36929 /* tvProgressStyle.swift in Sources */,
 				95ED78791CDB955900D36929 /* tvProgress+Loader.swift in Sources */,
+				954F52971CE036560080805E /* UIButton+closure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
