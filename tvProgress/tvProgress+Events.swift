@@ -37,11 +37,11 @@ extension tvProgress {
         struct __ {
             static var events: [AnyObject] = []
         }
-        if events != nil {
-            __.events = events!
-        }
         if getter != nil {
             getter?(events: __.events)
+        }
+        if events != nil {
+            __.events = events!
         }
     }
     
@@ -58,7 +58,7 @@ extension tvProgress {
     }
     
     internal func removeEventCatch() -> Void {
-        self.getEventCatch { (events: [AnyObject]) -> Void in
+        self.getEventCatch([]) { (events: [AnyObject]) -> Void in
             for event in events where event is UITapGestureRecognizer {
                 self.removeGestureRecognizer(event as! UITapGestureRecognizer)
             }
