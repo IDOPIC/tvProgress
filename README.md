@@ -1,5 +1,6 @@
 # tvProgress
 
+![tvOS-UI]https://img.shields.io/badge/tvOS-UI%20%2F%20UX-orange.svg
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 `tvProgress` is an easy way of displaying the progress of an ongoing task on tvOS.
@@ -174,7 +175,7 @@ public protocol tvLoaderAnimatable: class {
 
 ## Contributing to this project
 
-If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues]().
+If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/tvProgress/tvProgress/issues/new).
 
 ## License
 
