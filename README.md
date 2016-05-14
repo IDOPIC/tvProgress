@@ -111,21 +111,51 @@ We just saw that customization is available in every `tvProgress` method call. Y
 
 Each of these properties has to be called on `tvProgress.sharedInstance`
 
-### tvProgressStyle
+### tvProgressStyle Enum
 
-### tvLoaderType
+`tvProgressStyle` is an enum that allows you to customize the appearance of `tvProgress`
 
+```swift
+public enum tvProgressStyle {
+    case Dark
+    case Light
+    case Custom(mainColor: UIColor, secondaryColor: UIColor, blurStyle: UIBlurEffectStyle)
+}
+```
 
+* Dark style displays `tvProgress` on a dark blurStyle background
+* Light style displays `tvProgress` on a light blurStyle background
+* Custom allows you to specify mainColor, secondaryColor and a UIBlurEffectStyle
 
+### tvLoaderType Enum
 
-### Hint
+`tvLoaderType` is an enum that allows you to customize the appearance of the loader when `tvProgress` is displayed.
 
-As standard `SVProgressHUD` offers two preconfigured styles:
+```swift
+public enum tvLoaderType {
+    case Default()
+    case AndroidStyle()
+    case Custom(cl: tvLoaderAnimatable.Type)
+}
+```
 
-* `SVProgressHUDStyleLight`: White background with black spinner and text
-* `SVProgressHUDStyleDark`: Black background with white spinner and text
+The enum has 3 different cases :
+* `Default` case that allows you to display a simple animated circle
+* `AndroidStyle` case that allows you to display a animated circle which start point is moving
+* `Custom` case is here to allow you to add your own animation. You have to pass a parameter that is a class type confirming to `tvLoaderAnimatable` protocol.
 
-If you want to use custom colors with `setForegroundColor` and `setBackgroundColor:` don't forget to set `SVProgressHUDStyleCustom` via `setDefaultStyle:`.
+### tvLoaderAnimatable Protocol
+
+You can implement your own class to customize the loader appearance. You can refer to the `Demo` app to see how you can implement your own tvLoaderAnimatable class.
+
+```swift
+public protocol tvLoaderAnimatable: class {
+    init()
+    func configureWithStyle(style: tvProgressStyle) -> (view: UIView, completion: () -> Void)
+}
+```
+
+`configureWithStyle` method is the main method you have to implement. This is where you are going to create a view that is animated. You have to return a tuple that contains the view and a closure. The closure will allow us to remove animations when we dismiss `tvProgress`.
 
 ## Contributing to this project
 
@@ -133,7 +163,7 @@ If you have feature requests or bug reports, feel free to help out by sending pu
 
 ## License
 
-`tvProgress` is distributed under the terms and conditions of the [MIT license](https://github.com/SVProgressHUD/SVProgressHUD/blob/master/LICENSE.txt). The success and error icons are made by [Freepik](http://www.freepik.com) from [Flaticon](http://www.flaticon.com) and are licensed under [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/).
+`tvProgress` is distributed under the terms and conditions of the [MIT license](). The success and error icons are made by [Freepik](http://www.freepik.com) from [Flaticon](http://www.flaticon.com) and are licensed under [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/).
 
 ## Credits
 

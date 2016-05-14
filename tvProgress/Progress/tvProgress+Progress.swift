@@ -10,7 +10,7 @@ import Foundation
 
 extension tvProgress {
     //MARK: - Properties
-    public var progressType: tvProgressType? {
+    internal var progressType: tvProgressType? {
         get {
             return self.progressType ?? .Default()
         }

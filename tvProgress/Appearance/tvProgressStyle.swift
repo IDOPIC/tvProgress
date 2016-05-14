@@ -11,7 +11,7 @@ import Foundation
 public enum tvProgressStyle {
     case Dark
     case Light
-    case Custom(mainColor: UIColor, secondaryColor: UIColor)
+    case Custom(mainColor: UIColor, secondaryColor: UIColor, blurStyle: UIBlurEffectStyle)
     
     public var mainColor: UIColor {
         switch self {
@@ -19,7 +19,7 @@ public enum tvProgressStyle {
             return UIColor.whiteColor()
         case .Light:
             return UIColor.blackColor()
-        case .Custom(let mainColor, _):
+        case .Custom(let mainColor, _, _):
             return mainColor
         }
     }
@@ -30,7 +30,7 @@ public enum tvProgressStyle {
             return UIColor.blackColor()
         case .Light:
             return UIColor.whiteColor()
-        case .Custom(_, let secondaryColor):
+        case .Custom(_, let secondaryColor, _):
             return secondaryColor
         }
     }
@@ -39,8 +39,10 @@ public enum tvProgressStyle {
         switch self {
         case .Dark:
             return .Dark
-        default:
+        case .Light:
             return .Light
+        case .Custom(_, _, let customBlurStyle):
+            return customBlurStyle
         }
     }
 }

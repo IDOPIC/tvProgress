@@ -11,12 +11,11 @@ import Foundation
 class AndroidStyleLoader: tvLoaderAnimatable {
     
     //MARK: - tvLoaderAnimatable
-    required init(){
+    required init() {
     }
     
     func configureWithStyle(style: tvProgressStyle) -> (view: UIView, completion: () -> Void) {
         let v: UIView = UIView(frame: CGRectMake(0, 0, 100, 100))
-        
         let bounds: CGRect = v.frame
         let rectShape: CAShapeLayer = CAShapeLayer()
         rectShape.bounds = bounds

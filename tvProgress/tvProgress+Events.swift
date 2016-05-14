@@ -12,7 +12,8 @@ extension tvProgress {
     public var menuButtonDidPress: (() -> Void)? {
         get {
             return self._menuButtonPressClosure
-        } set {
+        }
+        set {
             self._menuButtonPressClosure = newValue
         }
     }
@@ -20,7 +21,8 @@ extension tvProgress {
     public var playPauseButtonDidPress: (() -> Void)? {
         get {
             return self._playPauseButtonPressClosure
-        } set {
+        }
+        set {
             self._playPauseButtonPressClosure = newValue
         }
     }
