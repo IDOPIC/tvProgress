@@ -6,6 +6,9 @@
 
 `tvProgress` is inspired by [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD). This library is specifically designed for tvOS and fully respects Apple design and interface guidelines regarding tvOS. It is written using Swift 2.2.
 
+![tvProgress](http://f.cl.ly/items/1x2r2z2w3e2i2v011M2k/firstloader_1-2.gif)
+![tvProgress](http://f.cl.ly/items/2d1R441V2C471S1B0B3i/thirdloader-2.gif)
+
 ## Demo		
 
 Try `tvProgress` with the demo project available in this repo.
@@ -106,7 +109,15 @@ If you specify and `action`, `tvProgress` won't dismiss. You have to call the di
 We just saw that customization is available in every `tvProgress` method call. You also can globally customize `tvProgress` using the following properties :
 
 ```swift
-
+public var isVisible: Bool
+public var loaderType: tvLoaderType!
+public var style: tvProgressStyle!
+public var font: UIFont!
+public var successImage: UIImage!
+public var errorImage: UIImage!
+public var minimumDismissDuration: Double!
+public var fadeInAnimationDuration: Double!
+public var fadeOutAnimationDuration: Double!
 ```
 
 Each of these properties has to be called on `tvProgress.sharedInstance`
