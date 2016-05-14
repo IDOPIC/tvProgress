@@ -28,7 +28,7 @@ $ brew install carthage
 
 To integrate `tvProgress` into your Xcode project using Carthage, specify it in your `Cartfile`:
 
-```ogdl
+```
 github "tvProgress/tvProgress"
 ```
 
@@ -59,6 +59,11 @@ Using tvProgress is very easy. You can use it doing some very simple operations 
 tvProgress.show()
 //add your code here
 tvProgress.dismiss()
+```
+
+You can test if `tvProgress` is visble with the following property :
+```swift
+public var isVisible: Bool { get }
 ```
 
 ### Showing the HUD
@@ -109,7 +114,6 @@ If you specify and `action`, `tvProgress` won't dismiss. You have to call the di
 We just saw that customization is available in every `tvProgress` method call. You also can globally customize `tvProgress` using the following properties :
 
 ```swift
-public var isVisible: Bool
 public var loaderType: tvLoaderType!
 public var style: tvProgressStyle!
 public var font: UIFont!
