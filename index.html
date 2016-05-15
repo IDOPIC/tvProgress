@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>tvProgress by tvProgress</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">tvProgress</h1>
+      <h2 class="project-tagline">tvProgress is an easy way of displaying the progress of an ongoing task on tvOS inspired by SVProgressHUD.</h2>
+      <a href="https://github.com/tvProgress/tvProgress" class="btn">View on GitHub</a>
+      <a href="https://github.com/tvProgress/tvProgress/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/tvProgress/tvProgress/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="tvprogress" class="anchor" href="#tvprogress" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tvProgress</h1>
+
+<p><img src="https://img.shields.io/badge/tvOS-UI%20%2F%20UX-orange.svg" alt="tvOS-UI">
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a></p>
+
+<p><code>tvProgress</code> is an easy way of displaying the progress of an ongoing task on tvOS.</p>
+
+<p><code>tvProgress</code> is inspired by <a href="https://github.com/SVProgressHUD/SVProgressHUD">SVProgressHUD</a>. This library is specifically designed for tvOS and fully respects Apple design and interface guidelines regarding tvOS. It is written using Swift 2.2.</p>
+
+<p><img src="http://f.cl.ly/items/1x2r2z2w3e2i2v011M2k/firstloader_1-2.gif" alt="tvProgress">
+<img src="http://f.cl.ly/items/2d1R441V2C471S1B0B3i/thirdloader-2.gif" alt="tvProgress"></p>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>Try <code>tvProgress</code> with the demo project available in this repo.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a id="carthage" class="anchor" href="#carthage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Carthage</h3>
+
+<p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.</p>
+
+<p>You can install Carthage with <a href="http://brew.sh/">Homebrew</a> using the following command:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ brew update
+$ brew install carthage</pre></div>
+
+<p>To integrate <code>tvProgress</code> into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
+
+<pre><code>github "tvProgress/tvProgress"
+</code></pre>
+
+<p>Run <code>carthage update</code> to build the framework and drag the built <code>tvProgress.framework</code> (in Carthage/Build/tvOS folder) into your Xcode project (Linked Frameworks and Libraries in <code>Targets</code>).</p>
+
+<h3>
+<a id="manually" class="anchor" href="#manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Manually</h3>
+
+<ul>
+<li>Drag the <code>tvProgress.xcodeproj</code> file into your project.</li>
+<li>Add the <code>tvProgress</code> framework into <code>Embedded Binaries</code>.</li>
+<li>Near <code>Run</code> button, select <code>Manage scheme</code>.</li>
+<li>Select your app scheme.</li>
+<li>Click on <code>Edit</code>.</li>
+<li>Select <code>Build</code> on the left menu.</li>
+<li>Uncheck <code>Find Implicit Dependencies</code>. This will prevent Xcode from compiling library each time you compile your app.</li>
+</ul>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>(see sample Xcode project in <code>/Demo</code>)</p>
+
+<p><code>tvProgress</code> is created as a singleton (i.e. it doesn't need to be explicitly allocated and instantiated; you directly call <code>tvProgress.method</code>).</p>
+
+<p><strong>tvProgress usage will block the user while loading content. Use it when you need to.</strong></p>
+
+<p>Using tvProgress is very easy. You can use it doing some very simple operations such as :</p>
+
+<div class="highlight highlight-source-swift"><pre>tvProgress<span class="pl-k">.</span>show()
+<span class="pl-c">//add your code here</span>
+tvProgress<span class="pl-k">.</span>dismiss()</pre></div>
+
+<p>You can test if <code>tvProgress</code> is visble with the following property :</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">public</span> <span class="pl-k">var</span> isVisible: <span class="pl-c1">Bool</span> { <span class="pl-k">get</span> }</pre></div>
+
+<h3>
+<a id="showing-the-hud" class="anchor" href="#showing-the-hud" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Showing the HUD</h3>
+
+<p>You can show the status of indeterminate tasks using this method:</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">func</span> <span class="pl-en">show</span>(status: <span class="pl-c1">String</span>? <span class="pl-k">=</span> <span class="pl-k">.</span>None, <span class="pl-en">loaderType</span> <span class="pl-smi">lt</span>: tvLoaderType? <span class="pl-k">=</span> <span class="pl-k">.</span>None, style: tvProgressStyle? <span class="pl-k">=</span> <span class="pl-k">.</span>None, menuButtonDidPress: (() <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>)? = .None, playButtonDidPress: (() <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>)? = .None) <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span></pre></div>
+
+<p>Each parameter is optional.
+You can either :</p>
+
+<ul>
+<li>simply call <code>show()</code> method to display a simple animation</li>
+<li>specify a status to display a text</li>
+<li>specify a loader to change the animation using <code>tvLoaderType</code> enum</li>
+<li>specify a style using <code>tvProgressStyle</code> enum</li>
+<li>specify a closure to be executed when the user press the <code>Menu</code> button while <code>tvProgress</code> is displayed</li>
+<li>specify a closure to be executed when the user press the <code>Play/Pause</code> button while <code>tvProgress</code> is displayed</li>
+</ul>
+
+<h3>
+<a id="dismissing-the-hud" class="anchor" href="#dismissing-the-hud" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dismissing the HUD</h3>
+
+<p>The HUD can be dismissed using:</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">func</span> <span class="pl-en">dismiss</span>(delay: <span class="pl-c1">Double</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span></pre></div>
+
+<p><code>Delay</code> parameter is optional.</p>
+
+<h3>
+<a id="displaying-success-or-error" class="anchor" href="#displaying-success-or-error" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Displaying Success or Error</h3>
+
+<p>If your loading success or fails, you can display a message that gives information about what happened to the user.</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">func</span> <span class="pl-en">showSuccessWithStatus</span>(status: <span class="pl-c1">String</span>? <span class="pl-k">=</span> <span class="pl-k">.</span>None, <span class="pl-en">andSuccessImage</span> <span class="pl-smi">successImage</span>: UIImage? <span class="pl-k">=</span> <span class="pl-k">.</span>None, <span class="pl-en">andStyle</span> <span class="pl-smi">style</span>: tvProgressStyle? <span class="pl-k">=</span> <span class="pl-k">.</span>None, <span class="pl-en">andAction</span> <span class="pl-smi">action</span>: (label: <span class="pl-c1">String</span>, closure: (<span class="pl-c1">Void</span> <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>))? = .None, menuButtonDidPress: (() <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>)? = .None, playButtonDidPress: (() <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>)? = .None) <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>
+<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">func</span> <span class="pl-en">showErrorWithStatus</span>(status: <span class="pl-c1">String</span>? <span class="pl-k">=</span> <span class="pl-k">.</span>None, <span class="pl-en">andErrorImage</span> <span class="pl-smi">errorImage</span>: UIImage? <span class="pl-k">=</span> <span class="pl-k">.</span>None, <span class="pl-en">andStyle</span> <span class="pl-smi">style</span>: tvProgressStyle? <span class="pl-k">=</span> <span class="pl-k">.</span>None, <span class="pl-en">andAction</span> <span class="pl-smi">action</span>: (label: <span class="pl-c1">String</span>, closure: (<span class="pl-c1">Void</span> <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>))? = .None, menuButtonDidPress: (() <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>)? = .None, playButtonDidPress: (() <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>)? = .None) <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span></pre></div>
+
+<p>As it was for showing and dismissing <code>tvProgress</code>, each parameter is optional so that you can fully customize your success or error displaying.
+Following parameters are specific to success / error display :</p>
+
+<ul>
+<li>You can specify an image to be displayed instead of the default image</li>
+<li>You can specify an <code>action</code>. This action is a tuple that contains a label and a closure. If you specify an <code>action</code>, the label will be use to generate a button while the closure will be executed when the user presses the button.</li>
+</ul>
+
+<p>If you specify and <code>action</code>, <code>tvProgress</code> won't dismiss. You have to call the dismiss method in your closure. If you don't specify an <code>action</code>, <code>tvProgress</code> will automatically dismiss the same way <a href="https://github.com/SVProgressHUD/SVProgressHUD">SVProgressHUD</a> handles it, that means computing a display time considering the message to be displayed length or 5 seconds if no message is present.</p>
+
+<h2>
+<a id="customization" class="anchor" href="#customization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Customization</h2>
+
+<p>We just saw that customization is available in every <code>tvProgress</code> method call. You also can globally customize <code>tvProgress</code> using the following properties :</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">public</span> <span class="pl-k">var</span> loaderType: tvLoaderType<span class="pl-k">!</span>
+<span class="pl-k">public</span> <span class="pl-k">var</span> style: tvProgressStyle<span class="pl-k">!</span>
+<span class="pl-k">public</span> <span class="pl-k">var</span> font: UIFont<span class="pl-k">!</span>
+<span class="pl-k">public</span> <span class="pl-k">var</span> successImage: UIImage<span class="pl-k">!</span>
+<span class="pl-k">public</span> <span class="pl-k">var</span> errorImage: UIImage<span class="pl-k">!</span>
+<span class="pl-k">public</span> <span class="pl-k">var</span> minimumDismissDuration: <span class="pl-c1">Double</span><span class="pl-k">!</span>
+<span class="pl-k">public</span> <span class="pl-k">var</span> fadeInAnimationDuration: <span class="pl-c1">Double</span><span class="pl-k">!</span>
+<span class="pl-k">public</span> <span class="pl-k">var</span> fadeOutAnimationDuration: <span class="pl-c1">Double</span><span class="pl-k">!</span></pre></div>
+
+<p>Each of these properties has to be called on <code>tvProgress.sharedInstance</code></p>
+
+<h3>
+<a id="tvprogressstyle-enum" class="anchor" href="#tvprogressstyle-enum" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tvProgressStyle Enum</h3>
+
+<p><code>tvProgressStyle</code> is an enum that allows you to customize the appearance of <code>tvProgress</code></p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">public</span> <span class="pl-k">enum</span> tvProgressStyle {
+    <span class="pl-k">case</span> Dark
+    <span class="pl-k">case</span> Light
+    <span class="pl-k">case</span> Custom(mainColor: UIColor, secondaryColor: UIColor, blurStyle: UIBlurEffectStyle)
+}</pre></div>
+
+<ul>
+<li>Dark style displays <code>tvProgress</code> on a dark blurStyle background</li>
+<li>Light style displays <code>tvProgress</code> on a light blurStyle background</li>
+<li>Custom allows you to specify mainColor, secondaryColor and a UIBlurEffectStyle</li>
+</ul>
+
+<h3>
+<a id="tvloadertype-enum" class="anchor" href="#tvloadertype-enum" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tvLoaderType Enum</h3>
+
+<p><code>tvLoaderType</code> is an enum that allows you to customize the appearance of the loader when <code>tvProgress</code> is displayed.</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">public</span> <span class="pl-k">enum</span> tvLoaderType {
+    <span class="pl-k">case</span> Default()
+    <span class="pl-k">case</span> AndroidStyle()
+    <span class="pl-k">case</span> Custom(cl: tvLoaderAnimatable<span class="pl-k">.</span><span class="pl-k">Type</span>)
+}</pre></div>
+
+<p>The enum has 3 different cases :</p>
+
+<ul>
+<li>
+<code>Default</code> case that allows you to display a simple animated circle</li>
+<li>
+<code>AndroidStyle</code> case that allows you to display a animated circle which start point is moving</li>
+<li>
+<code>Custom</code> case is here to allow you to add your own animation. You have to pass a parameter that is a class type confirming to <code>tvLoaderAnimatable</code> protocol.</li>
+</ul>
+
+<h3>
+<a id="tvloaderanimatable-protocol" class="anchor" href="#tvloaderanimatable-protocol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tvLoaderAnimatable Protocol</h3>
+
+<p>You can implement your own class to customize the loader appearance. You can refer to the <code>Demo</code> app to see how you can implement your own tvLoaderAnimatable class.</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">public</span> <span class="pl-k">protocol</span> tvLoaderAnimatable: <span class="pl-k">class</span> {
+    <span class="pl-k">init</span>()
+    <span class="pl-k">func</span> <span class="pl-en">configureWithStyle</span>(style: tvProgressStyle) <span class="pl-k">-&gt;</span> (view: UIView, completion: () -&gt; <span class="pl-c1">Void</span>)
+}</pre></div>
+
+<p><code>configureWithStyle</code> method is the main method you have to implement. This is where you are going to create a view that is animated. You have to return a tuple that contains the view and a closure. The closure will allow us to remove animations when we dismiss <code>tvProgress</code>.</p>
+
+<h2>
+<a id="contributing-to-this-project" class="anchor" href="#contributing-to-this-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing to this project</h2>
+
+<p>If you have feature requests or bug reports, feel free to help out by sending pull requests or by <a href="https://github.com/tvProgress/tvProgress/issues/new">creating new issues</a>.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p><code>tvProgress</code> is distributed under the terms and conditions of the <a href="">MIT license</a>. The success and error icons are made by <a href="http://www.freepik.com">Freepik</a> from <a href="http://www.flaticon.com">Flaticon</a> and are licensed under <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons BY 3.0</a>.</p>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
+
+<p><code>tvProgress</code> is brought to you by <a href="https://github.com/CedricEugeni">Cédric Eugeni</a>, <a href="https://github.com/legomanfish">Antoine Cormery</a> and <a href="">contributors to the project</a>. If you're using <code>tvProgress</code> in your project, attribution would be very appreciated.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/tvProgress/tvProgress">tvProgress</a> is maintained by <a href="https://github.com/tvProgress">tvProgress</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
