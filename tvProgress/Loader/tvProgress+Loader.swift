@@ -20,10 +20,11 @@ public extension tvProgress {
     }
     
     //MARK: - Methods
-    public static func show(status: String? = .None, loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = .None, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
+    public static func show(status: String? = .None, contentView: UIView? = .None, loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock() { () -> Void in
             if !instance._isVisible {
+                instance.frame = contentView?.bounds ?? UIScreen.mainScreen().bounds
                 var views: [UIView] = []
                 let loader: (view: UIView, completion: () -> Void) = (lt ?? instance.loaderType).getInstance(style ?? instance.style)
                 let loaderView: UIView = loader.0
@@ -38,7 +39,7 @@ public extension tvProgress {
                     views.insert(sLabel, atIndex: views.count)
                 }
                 
-                tvProgress.showWithInstance(instance, andViews: views, andStyle: style, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
+                tvProgress.showWithInstance(instance, andContent: contentView, andViews: views, andStyle: style, withBlurView: addBlurView, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
             }
         }
     }

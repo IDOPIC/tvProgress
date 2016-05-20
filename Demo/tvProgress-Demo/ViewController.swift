@@ -10,7 +10,9 @@ import UIKit
 import tvProgress
 
 class ViewController: UIViewController {
-
+    //MARK: - IBOutlet
+    @IBOutlet weak var contentViewOutlet: UIView!
+    
     //MARK: - IBActions
     @IBAction func showAction(sender: AnyObject) {
         tvProgress.show()
@@ -65,6 +67,12 @@ class ViewController: UIViewController {
             debugPrint("Yeah!")
             tvProgress.dismiss()
         }))
+    }
+    
+    @IBAction func showOnContentViewAction(sender: AnyObject) {
+        tvProgress.show(.None, contentView: self.contentViewOutlet, loaderType: tvLoaderType.Default(), style: tvProgressStyle.Light, withBlurView: false)
+        
+        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
     }
     
     func dismissAction() {

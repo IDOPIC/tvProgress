@@ -32,16 +32,8 @@ public class tvProgress: UIView {
     //MARK: - Singleton
     static let sharedInstance: tvProgress = {
         let instance = tvProgress()
-        
         instance.frame = UIScreen.mainScreen().bounds
         instance.alpha = 0
-        let blurEffect: UIBlurEffect = UIBlurEffect(style: instance.style.blurStyle)
-        instance._blurView = UIVisualEffectView(frame: instance.frame)
-        instance._blurView?.effect = blurEffect
-        instance.userInteractionEnabled = true
-        
-        instance.addSubview(instance._blurView!)
-        
         return instance
     }()
     
@@ -56,6 +48,7 @@ public class tvProgress: UIView {
                     for v in instance.subviews where !(v is UIVisualEffectView){
                         v.removeFromSuperview()
                     }
+                    instance._blurView?.removeFromSuperview()
                     instance.removeEventCatch()
                     instance.menuButtonDidPress = .None
                     instance.playPauseButtonDidPress = .None
@@ -63,6 +56,8 @@ public class tvProgress: UIView {
                     instance._finishLoaderCompletion = .None
                     instance.removeFromSuperview()
                     instance._isVisible = false
+                    
+                    instance.frame = (UIApplication.sharedApplication().keyWindow?.subviews.last)!.frame
                 }
             }
         }
@@ -73,29 +68,34 @@ public class tvProgress: UIView {
         return max(Double(string.characters.count) * 0.06 + 0.5, tvProgress.sharedInstance.minimumDismissDuration)
     }
     
-    internal static func showWithInstance(instance: tvProgress, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None, menuButtonDidPress: (() -> Void)?, playButtonDidPress: (() -> Void)?) -> Void {
+    internal static func showWithInstance(instance: tvProgress, andContent contentView: UIView? = .None, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)?, playButtonDidPress: (() -> Void)?) -> Void {
         if !instance._isVisible {
             instance._isVisible = true
             instance.menuButtonDidPress = menuButtonDidPress
             instance.playPauseButtonDidPress = playButtonDidPress
             instance.setEventCatch()
             
-            let blurEffect: UIBlurEffect = UIBlurEffect(style: (style ?? instance.style).blurStyle)
-            instance._blurView?.effect = blurEffect
+            let refParentView: UIView = contentView ?? (UIApplication.sharedApplication().keyWindow?.subviews.last)!
+            instance.frame = refParentView.bounds
+            if addBlurView {
+                let blurEffect: UIBlurEffect = UIBlurEffect(style: (style ?? instance.style).blurStyle)
+                instance._blurView = UIVisualEffectView(frame: refParentView.bounds)
+                instance._blurView?.effect = blurEffect
+                instance.userInteractionEnabled = true
+                instance.addSubview(instance._blurView!)
+            }
             
             for view: UIView in views {
                 instance.addSubview(view)
             }
             
             instance.alpha = 0
-            let tmp: UIView = (UIApplication.sharedApplication().keyWindow?.subviews.last)!
-            tmp.addSubview(instance)
+            refParentView.addSubview(instance)
             UIView.animateWithDuration(instance.fadeInAnimationDuration, animations: {
                 instance.alpha = 1
                 }, completion: { (finished) in
-                    debugPrint("completed animation")
-                    tmp.setNeedsFocusUpdate()
-                    tmp.updateFocusIfNeeded()
+                    refParentView.setNeedsFocusUpdate()
+                    refParentView.updateFocusIfNeeded()
             })
         }
     }
