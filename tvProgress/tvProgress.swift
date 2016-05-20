@@ -30,7 +30,7 @@ public class tvProgress: UIView {
     internal var _playPauseButtonPressClosure: (() -> Void)?
     
     //MARK: - Singleton
-    static let sharedInstance: tvProgress = {
+    internal static let sharedInstance: tvProgress = {
         let instance = tvProgress()
         instance.frame = UIScreen.mainScreen().bounds
         instance.alpha = 0
@@ -38,6 +38,12 @@ public class tvProgress: UIView {
     }()
     
     //MARK: - Methods
+    /**
+     To dismiss the loader view
+     
+     - Parameters:
+        - delay: time before dismissing the loader
+     */
     public static func dismiss(delay: Double = 0) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in

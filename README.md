@@ -71,15 +71,17 @@ public var isVisible: Bool { get }
 You can show the status of indeterminate tasks using this method:
 
 ```swift
-public static func show(status: String? = .None, loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = .None, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void
+public static func show(status: String? = .None, contentView: UIView? = .None, loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void
 ```
 
 Each parameter is optional.
 You can either :
 * simply call `show()` method to display a simple animation
 * specify a status to display a text
+* specify a contentView to display the loader on a specific UIView
 * specify a loader to change the animation using `tvLoaderType` enum
 * specify a style using `tvProgressStyle` enum
+* specify if you want the background Blur View via the addBlurView parameter
 * specify a closure to be executed when the user press the `Menu` button while `tvProgress` is displayed
 * specify a closure to be executed when the user press the `Play/Pause` button while `tvProgress` is displayed
 

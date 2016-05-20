@@ -10,6 +10,17 @@ import Foundation
 
 extension tvProgress {
     //MARK: - Methods
+    /**
+     If your loading success, you can display a message that gives information about what happened to the user
+     
+     - Parameters:
+        - status: specify a text to display
+        - successImage: specify an image to be displayed instead of the default image
+        - style: specify a style using tvProgressStyle enum
+        - action: it's a tuple that contains a label and a closure. If you specify this parameter, the label will be use to generate a button while the closure will be executed when the user presses the button
+        - menuButtonDidPress: specify a closure to be executed when the user press the Menu button while tvProgress is displayed
+        - playButtonDidPress: specify a closure to be executed when the user press the Play/Pause button while tvProgress is displayed
+     */
     public static func showSuccessWithStatus(status: String? = .None, andSuccessImage successImage: UIImage? = .None, andStyle style: tvProgressStyle? = .None, andAction action: (label: String, closure: (Void -> Void))? = .None, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock() { () -> Void in
