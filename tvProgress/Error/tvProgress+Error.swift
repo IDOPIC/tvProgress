@@ -42,8 +42,6 @@ extension tvProgress {
                 if let act = action {
                     let button: UIButton = UIButton(type: .System)
                     button.setTitle(act.label, forState: .Normal)
-                    //button.backgroundColor = (style ?? instance.style).mainColor
-                    //button.setTitleColor((style ?? instance.style)?.secondaryColor, forState: .Normal)
                     button.sizeToFit()
                     button.actionHandleWithAction(act.closure)
                     let v: UIView = views[views.count - 1]

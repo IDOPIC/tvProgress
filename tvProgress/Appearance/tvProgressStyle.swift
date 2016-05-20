@@ -8,6 +8,13 @@
 
 import Foundation
 
+/**
+ Style for displaying loader
+ 
+ - Dark: style with the main color as white, the second color as black and the blur effect style as .Dark
+ - Light: style with the main color as black, the second color as white and the blur effect style as .Light
+ - Custom: you can create your own style, by specify a main color, a second color and a blur effect style
+ */
 public enum tvProgressStyle {
     case Dark
     case Light
