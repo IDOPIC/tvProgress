@@ -74,12 +74,20 @@ public class tvProgress: UIView {
         return max(Double(string.characters.count) * 0.06 + 0.5, tvProgress.sharedInstance.minimumDismissDuration)
     }
     
-    internal static func showWithInstance(instance: tvProgress, andContent contentView: UIView? = .None, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)?, playButtonDidPress: (() -> Void)?) -> Void {
+    internal static func showWithInstance(instance: tvProgress, andContent contentView: UIView? = .None, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
+        guard contentView == .None || (menuButtonDidPress == nil && playButtonDidPress == nil) else {
+            debugPrint("WARNING: you can't set a contentView with button completion")
+            return
+        }
+        
         if !instance._isVisible {
             instance._isVisible = true
             instance.menuButtonDidPress = menuButtonDidPress
             instance.playPauseButtonDidPress = playButtonDidPress
-            instance.setEventCatch()
+            
+            if contentView == .None {
+                instance.setEventCatch()
+            }
             
             let refParentView: UIView = contentView ?? (UIApplication.sharedApplication().keyWindow?.subviews.last)!
             instance.frame = refParentView.bounds
