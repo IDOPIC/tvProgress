@@ -13,7 +13,7 @@ import Foundation
  
  - Default: use the default loader
  - AndroidStyle: use an Android Style loader
- - Custom: your can create your own loader by using this enum, you must to specify a tvLoaderAnimatable.Type
+ - Custom: your can create your own loader by using this enum, you must specify a tvLoaderAnimatable.Type
  */
 public enum tvLoaderType {
     case Default()
