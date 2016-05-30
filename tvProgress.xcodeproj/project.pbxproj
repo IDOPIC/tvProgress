@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		691189491CE0FDA800EBBE33 /* tvProgress+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691189481CE0FDA800EBBE33 /* tvProgress+Events.swift */; };
+		951E29501CFC372000450DFA /* tvProgress+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E294F1CFC372000450DFA /* tvProgress+Events.swift */; };
 		954F527F1CDD4EA30080805E /* AndroidStyleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954F527E1CDD4EA30080805E /* AndroidStyleLoader.swift */; };
 		954F52971CE036560080805E /* UIButton+closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954F52961CE036560080805E /* UIButton+closure.swift */; };
 		958834A41CDB88AE007509F4 /* tvProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 958834A31CDB88AE007509F4 /* tvProgress.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		691189481CE0FDA800EBBE33 /* tvProgress+Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "tvProgress+Events.swift"; sourceTree = "<group>"; };
+		951E294F1CFC372000450DFA /* tvProgress+Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "tvProgress+Events.swift"; path = "Events/tvProgress+Events.swift"; sourceTree = "<group>"; };
 		954F527E1CDD4EA30080805E /* AndroidStyleLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AndroidStyleLoader.swift; path = Loader/AndroidStyleLoader.swift; sourceTree = "<group>"; };
 		954F52961CE036560080805E /* UIButton+closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+closure.swift"; path = "Extensions/UIButton+closure.swift"; sourceTree = "<group>"; };
 		958834A01CDB88AD007509F4 /* tvProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = tvProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +85,7 @@
 		691189471CE0FD8100EBBE33 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				691189481CE0FDA800EBBE33 /* tvProgress+Events.swift */,
+				951E294F1CFC372000450DFA /* tvProgress+Events.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 				95ED78751CDB8F7000D36929 /* tvProgressType.swift in Sources */,
 				95ED78711CDB8ECC00D36929 /* tvProgressAnimatable.swift in Sources */,
 				954F527F1CDD4EA30080805E /* AndroidStyleLoader.swift in Sources */,
-				691189491CE0FDA800EBBE33 /* tvProgress+Events.swift in Sources */,
+				951E29501CFC372000450DFA /* tvProgress+Events.swift in Sources */,
 				95ED78771CDB8FE600D36929 /* tvLoaderType.swift in Sources */,
 				95ED787B1CDB959300D36929 /* tvProgress+Progress.swift in Sources */,
 				95ED78731CDB8EEA00D36929 /* tvLoaderAnimatable.swift in Sources */,
