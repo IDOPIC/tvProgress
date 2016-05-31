@@ -39,9 +39,11 @@ extension tvProgress {
         struct __ {
             static var events: [AnyObject] = []
         }
+        
         if getter != nil {
             getter?(events: __.events)
         }
+        
         if events != nil {
             __.events = events!
         }
