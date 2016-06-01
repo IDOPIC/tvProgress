@@ -12,10 +12,10 @@ extension tvProgress {
     //MARK: - Properties
     internal var progressType: tvProgressType? {
         get {
-            return self.progressType ?? .Default()
+            return self.progressType ?? .FlatCircle()
         }
         set(newProgress) {
-            self.progressType = newProgress ?? .Default()
+            self.progressType = newProgress ?? .FlatCircle()
         }
     }
     
