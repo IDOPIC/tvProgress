@@ -19,6 +19,7 @@ public class tvProgress: UIView {
     //MARK: - Properties
     internal var _blurView: UIVisualEffectView?
     internal var _loaderType: tvLoaderType!
+    internal var _progressType: tvProgressType!
     internal var _style: tvProgressStyle!
     internal var _font: UIFont!
     internal var _successImage: UIImage!

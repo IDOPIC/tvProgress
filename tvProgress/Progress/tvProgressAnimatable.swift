@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol tvProgressAnimatable: class {
-    init(frame: CGRect)
+public protocol tvProgressAnimatable: tvLoaderAnimatable {
+    func updateProgress(progress: Double) -> Void
 }

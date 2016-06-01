@@ -26,6 +26,7 @@
 		95ED78821CDB97EE00D36929 /* tvProgress+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78811CDB97EE00D36929 /* tvProgress+Style.swift */; };
 		95ED78841CDB982000D36929 /* tvProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78831CDB982000D36929 /* tvProgressStyle.swift */; };
 		95ED78901CDBB15900D36929 /* FlatCircleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED788F1CDBB15900D36929 /* FlatCircleLoader.swift */; };
+		EC94B4E01CFF87370094245C /* FlatCircleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94B4DF1CFF87370094245C /* FlatCircleProgress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		95ED78811CDB97EE00D36929 /* tvProgress+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "tvProgress+Style.swift"; path = "Appearance/tvProgress+Style.swift"; sourceTree = "<group>"; };
 		95ED78831CDB982000D36929 /* tvProgressStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tvProgressStyle.swift; path = Appearance/tvProgressStyle.swift; sourceTree = "<group>"; };
 		95ED788F1CDBB15900D36929 /* FlatCircleLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlatCircleLoader.swift; path = Loader/FlatCircleLoader.swift; sourceTree = "<group>"; };
+		EC94B4DF1CFF87370094245C /* FlatCircleProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlatCircleProgress.swift; path = Progress/FlatCircleProgress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				95ED78701CDB8ECC00D36929 /* tvProgressAnimatable.swift */,
 				95ED78741CDB8F7000D36929 /* tvProgressType.swift */,
 				95ED787A1CDB959300D36929 /* tvProgress+Progress.swift */,
+				EC94B4DF1CFF87370094245C /* FlatCircleProgress.swift */,
 			);
 			name = Progress;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95ED78821CDB97EE00D36929 /* tvProgress+Style.swift in Sources */,
+				EC94B4E01CFF87370094245C /* FlatCircleProgress.swift in Sources */,
 				95ED78901CDBB15900D36929 /* FlatCircleLoader.swift in Sources */,
 				95ED78751CDB8F7000D36929 /* tvProgressType.swift in Sources */,
 				95ED78711CDB8ECC00D36929 /* tvProgressAnimatable.swift in Sources */,

@@ -69,10 +69,25 @@ class ViewController: UIViewController {
         }))
     }
     
+    var progress: Double = 0
+    
     @IBAction func showOnContentViewAction(sender: AnyObject) {
-        tvProgress.show(.None, contentView: self.contentViewOutlet, loaderType: tvLoaderType.Default(), style: tvProgressStyle.Light, withBlurView: false)
+        /*tvProgress.show(.None, contentView: self.contentViewOutlet, loaderType: tvLoaderType.Default(), style: tvProgressStyle.Light, withBlurView: false)
         
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)*/
+        tvProgress.showProgress(0)
+        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(progressFu), userInfo: nil, repeats: false)
+    }
+    
+    func progressFu() -> Void {
+        self.progress += 0.1
+        if self.progress >= 1 {
+            tvProgress.showProgress(self.progress)
+            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(progressFu), userInfo: nil, repeats: false)
+        } else {
+            tvProgress.dismiss()
+            self.progress = 0
+        }
     }
     
     func dismissAction() {

@@ -9,15 +9,15 @@
 import Foundation
 
 public enum tvProgressType {
-    case Default()
+    case FlatCircle()
     case Custom(cl: tvProgressAnimatable.Type)
     
-    var getInstance: tvProgressAnimatable? {
+    var getInstance: tvProgressAnimatable {
         switch self {
-        case .Default:
-            return .None
+        case .FlatCircle:
+            return FlatCircleProgress()
         case .Custom(let cl):
-            return cl.init(frame: CGRectMake(0, 0, 100, 100))
+            return cl.init()
         }
     }
 }
