@@ -24,7 +24,7 @@ extension tvProgress {
     public static func showSuccessWithStatus(status: String? = .None, andSuccessImage successImage: UIImage? = .None, andStyle style: tvProgressStyle? = .None, andAction action: (label: String, closure: (Void -> Void))? = .None, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock() { () -> Void in
-            if !instance._isVisible {
+            if !instance.isVisible {
                 var views: [UIView] = []
                 let si: UIImage = successImage ?? instance.successImage
                 let successImageView: UIImageView = UIImageView(frame: CGRectMake(instance.center.x - si.size.width / 2, instance.center.y - si.size.height / 2, si.size.width, si.size.height))
@@ -52,7 +52,7 @@ extension tvProgress {
                     views.insert(button, atIndex: views.count)
                 }
                 
-                tvProgress.showWithInstance(instance, andViews: views, andStyle: style, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
+                tvProgress.showWithInstance(instance, andVisibleType: visibleType.Success(), andViews: views, andStyle: style, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
                 
                 if let s = status where action == nil {
                     NSTimer.scheduledTimerWithTimeInterval(tvProgress.displayDurationForString(s), target: self, selector: #selector(dismiss), userInfo: nil, repeats: false)

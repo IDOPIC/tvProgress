@@ -8,6 +8,13 @@
 
 import UIKit
 
+internal enum visibleType {
+    case Loader()
+    case Success()
+    case Error()
+    case Progress(view: tvProgressAnimatable)
+}
+
 public class tvProgress: UIView {
     //MARK: - Properties
     internal var _blurView: UIVisualEffectView?
@@ -19,10 +26,10 @@ public class tvProgress: UIView {
     internal var _minimumDismissDuration: Double!
     internal var _fadeInAnimationDuration: Double!
     internal var _fadeOutAnimationDuration: Double!
-    internal var _isVisible: Bool = false
+    internal var _isVisible: visibleType? = nil
     public var isVisible: Bool {
         get {
-            return _isVisible
+            return _isVisible != nil
         }
     }
     internal var _finishLoaderCompletion: (() -> Void)?
@@ -47,7 +54,7 @@ public class tvProgress: UIView {
     public static func dismiss(delay: Double = 0) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-            if instance._isVisible {
+            if instance.isVisible {
                 UIView.animateWithDuration(instance.fadeOutAnimationDuration, delay: delay, options: .CurveEaseInOut, animations: { () -> Void in
                     instance.alpha = 0
                 }) { (_) -> Void in
@@ -61,7 +68,7 @@ public class tvProgress: UIView {
                     instance._finishLoaderCompletion?()
                     instance._finishLoaderCompletion = .None
                     instance.removeFromSuperview()
-                    instance._isVisible = false
+                    instance._isVisible = nil
                     
                     instance.frame = (UIApplication.sharedApplication().keyWindow?.subviews.last)!.frame
                 }
@@ -74,14 +81,14 @@ public class tvProgress: UIView {
         return max(Double(string.characters.count) * 0.06 + 0.5, tvProgress.sharedInstance.minimumDismissDuration)
     }
     
-    internal static func showWithInstance(instance: tvProgress, andContent contentView: UIView? = .None, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
+    internal static func showWithInstance(instance: tvProgress, andVisibleType vt: visibleType, andContent contentView: UIView? = .None, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
         guard contentView == .None || (menuButtonDidPress == nil && playButtonDidPress == nil) else {
             debugPrint("WARNING: you can't set a contentView with button completion")
             return
         }
         
-        if !instance._isVisible {
-            instance._isVisible = true
+        if !instance.isVisible {
+            instance._isVisible = vt
             instance.menuButtonDidPress = menuButtonDidPress
             instance.playPauseButtonDidPress = playButtonDidPress
             

@@ -24,7 +24,7 @@ extension tvProgress {
     public static func showErrorWithStatus(status: String? = .None, andErrorImage errorImage: UIImage? = .None, andStyle style: tvProgressStyle? = .None, andAction action: (label: String, closure: (Void -> Void))? = .None, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock() { () -> Void in
-            if !instance._isVisible {
+            if !instance.isVisible {
                 var views: [UIView] = []
                 let ei: UIImage = errorImage ?? instance.errorImage
                 let errorImageView: UIImageView = UIImageView(frame: CGRectMake(instance.center.x - ei.size.width / 2, instance.center.y - ei.size.height / 2, ei.size.width, ei.size.height))
@@ -50,7 +50,7 @@ extension tvProgress {
                     views.insert(button, atIndex: views.count)
                 }
                 
-                tvProgress.showWithInstance(instance, andViews: views, andStyle: style, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
+                tvProgress.showWithInstance(instance, andVisibleType: visibleType.Error(), andViews: views, andStyle: style, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
                 
                 if let s = status where action == nil {
                     NSTimer.scheduledTimerWithTimeInterval(tvProgress.displayDurationForString(s), target: self, selector: #selector(dismiss), userInfo: nil, repeats: false)
