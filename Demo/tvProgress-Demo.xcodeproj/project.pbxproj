@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		695994EA1D001BF200B9DDF4 /* SweebiProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695994E91D001BF200B9DDF4 /* SweebiProgress.swift */; };
 		954F526C1CDBF6DF0080805E /* tvProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2057AB1CDBF551003EF294 /* tvProgress.framework */; };
 		954F526D1CDBF6DF0080805E /* tvProgress.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC2057AB1CDBF551003EF294 /* tvProgress.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95ED783C1CDB895500D36929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED783B1CDB895500D36929 /* AppDelegate.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		695994E91D001BF200B9DDF4 /* SweebiProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweebiProgress.swift; sourceTree = "<group>"; };
 		95ED78381CDB895400D36929 /* tvProgress-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tvProgress-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95ED783B1CDB895500D36929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95ED783D1CDB895500D36929 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				EC2057A41CDBF537003EF294 /* Frameworks */,
+				695994E91D001BF200B9DDF4 /* SweebiProgress.swift */,
 				EC2057B31CDCC67F003EF294 /* SweebiLoader.swift */,
 				95ED783B1CDB895500D36929 /* AppDelegate.swift */,
 				95ED783D1CDB895500D36929 /* ViewController.swift */,
@@ -340,6 +343,7 @@
 				EC2057B41CDCC67F003EF294 /* SweebiLoader.swift in Sources */,
 				95ED783E1CDB895500D36929 /* ViewController.swift in Sources */,
 				95ED783C1CDB895500D36929 /* AppDelegate.swift in Sources */,
+				695994EA1D001BF200B9DDF4 /* SweebiProgress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

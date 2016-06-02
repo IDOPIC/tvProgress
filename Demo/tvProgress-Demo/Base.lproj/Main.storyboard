@@ -111,6 +111,14 @@
                                     <action selector="showProgressAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="I8w-u1-JOr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKY-LC-PTk">
+                                <rect key="frame" x="933" y="612" width="550" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Show Custom Progress"/>
+                                <connections>
+                                    <action selector="showCustomProgressAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="4tY-Ta-b5O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>

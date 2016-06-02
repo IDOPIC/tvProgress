@@ -10,14 +10,14 @@ import Foundation
 
 public enum tvProgressType {
     case FlatCircle()
-    case Custom(cl: tvProgressAnimatable.Type)
+    case Custom(cp: tvProgressAnimatable.Type)
     
     var getInstance: tvProgressAnimatable {
         switch self {
         case .FlatCircle:
             return FlatCircleProgress()
-        case .Custom(let cl):
-            return cl.init()
+        case .Custom(let cp):
+            return cp.init()
         }
     }
 }

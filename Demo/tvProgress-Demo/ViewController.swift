@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         }))
     }
     
-    var progress: Double = 0
+    var progress: Double = -1
     
     @IBAction func showOnContentViewAction(sender: AnyObject) {
         tvProgress.show(.None, contentView: self.contentViewOutlet, loaderType: tvLoaderType.Default(), style: tvProgressStyle.Light, withBlurView: false)
@@ -78,19 +78,32 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showProgressAction(sender: AnyObject) {
-        tvProgress.showProgress(0)
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
+        if self.progress < 0 {
+            self.progress = 0
+            tvProgress.showProgress(0, style: .Dark)
+            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
+        }
+    }
+    
+    @IBAction func showCustomProgressAction(sender: AnyObject) {
+        if self.progress < 0 {
+            self.progress = 0
+            tvProgress.showProgress(style: .Dark, progressType: tvProgressType.Custom(cp: SweebiProgress.self))
+            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
+        }
     }
     
     func progressFu() -> Void {
-        self.progress += 0.2
-        print(self.progress)
+        self.progress += 0.1
         if self.progress <= 1 {
             tvProgress.showProgress(self.progress)
-            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
+        }
+        
+        if self.progress <= 1 {
+            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval((self.progress <= 0.8) ? 0.5 : 0.25), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
         } else {
             tvProgress.dismiss()
-            self.progress = 0
+            self.progress = -1
         }
     }
     
