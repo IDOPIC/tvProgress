@@ -72,22 +72,23 @@ class ViewController: UIViewController {
     var progress: Double = 0
     
     @IBAction func showOnContentViewAction(sender: AnyObject) {
-        /*tvProgress.show(.None, contentView: self.contentViewOutlet, loaderType: tvLoaderType.Default(), style: tvProgressStyle.Light, withBlurView: false)
+        tvProgress.show(.None, contentView: self.contentViewOutlet, loaderType: tvLoaderType.Default(), style: tvProgressStyle.Light, withBlurView: false)
         
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)*/
+        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
+    }
+    
+    @IBAction func showProgressAction(sender: AnyObject) {
         tvProgress.showProgress(0)
         NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
     }
     
     func progressFu() -> Void {
-        self.progress += 0.1
+        self.progress += 0.2
         print(self.progress)
         if self.progress <= 1 {
-            print("#1")
             tvProgress.showProgress(self.progress)
             NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
         } else {
-            print("#2")
             tvProgress.dismiss()
             self.progress = 0
         }

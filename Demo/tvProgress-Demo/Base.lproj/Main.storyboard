@@ -100,7 +100,15 @@
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Show on an UIView"/>
                                 <connections>
-                                    <action selector="showOnContentViewAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="xu8-0Z-Kpc"/>
+                                    <action selector="showOnContentViewAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="MVp-9X-Cyy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQ3-1V-AXE">
+                                <rect key="frame" x="387" y="612" width="454" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Show Progress"/>
+                                <connections>
+                                    <action selector="showProgressAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="I8w-u1-JOr"/>
                                 </connections>
                             </button>
                         </subviews>
