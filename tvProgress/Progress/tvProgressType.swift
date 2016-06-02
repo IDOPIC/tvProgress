@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ Specify the progress animation rendering
+
+ - FlatCircle: use the default progress animation
+ - Custom: your can create your own progress animation by using this enum, you must specify a tvProgressAnimatable.Type
+ */
 public enum tvProgressType {
     case FlatCircle()
     case Custom(cp: tvProgressAnimatable.Type)

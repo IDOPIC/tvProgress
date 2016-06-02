@@ -86,6 +86,24 @@ You can either :
 * specify a closure to be executed when the user press the `Menu` button while `tvProgress` is displayed
 * specify a closure to be executed when the user press the `Play/Pause` button while `tvProgress` is displayed
 
+### Showing a progress animation
+
+```swift
+static public func showProgress(progress: Double = 0, status: String? = .None, contentView: UIView? = .None, progressType pt: tvProgressType? = .None, style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void
+```
+
+Each parameter is optional.
+You can either :
+* simply call `showProgress()` method to display a simple progress animation
+* specify the progress value (must be between 0 and 1)
+* specify a status to display a text
+* specify a contentView to display the loader on a specific UIView
+* specify a loader to change the animation using `tvProgressType` enum
+* specify a style using `tvProgressStyle` enum
+* specify if you want the background Blur View via the addBlurView parameter
+* specify a closure to be executed when the user press the `Menu` button while `tvProgress` is displayed
+* specify a closure to be executed when the user press the `Play/Pause` button while `tvProgress` is displayed
+
 ### Dismissing the HUD
 
 The HUD can be dismissed using:
@@ -162,6 +180,21 @@ The enum has 3 different cases :
 * `AndroidStyle` case that allows you to display a animated circle which start point is moving
 * `Custom` case is here to allow you to add your own animation. You have to pass a parameter that is a class type confirming to `tvLoaderAnimatable` protocol.
 
+### tvProgressType Enum
+
+`tvProgressType` is an enum that allows you to customize the appearance of the progress animation when `tvProgress` is displayed.
+
+```swift
+public enum tvProgressType {
+    case FlatCircle()
+    case Custom(cp: tvProgressAnimatable.Type)
+}
+```
+
+The enum has 2 different cases :
+* `FlatCircle` case that allows you to display a simple animated circle
+* `Custom` case is here to allow you to add your own animation. You have to pass a parameter that is a class type confirming to `tvProgressAnimatable` protocol.
+
 ### tvLoaderAnimatable Protocol
 
 You can implement your own class to customize the loader appearance. You can refer to the `Demo` app to see how you can implement your own tvLoaderAnimatable class.
@@ -174,6 +207,18 @@ public protocol tvLoaderAnimatable: class {
 ```
 
 `configureWithStyle` method is the main method you have to implement. This is where you are going to create a view that is animated. You have to return a tuple that contains the view and a closure. The closure will allow us to remove animations when we dismiss `tvProgress`.
+
+### tvProgressAnimatable Protocol
+
+You can implement your own class to customize the progress animation appearance. You can refer to the `Demo` app to see how you can implement your own tvProgressAnimatable class.
+
+```swift
+public protocol tvProgressAnimatable: tvLoaderAnimatable {
+    func updateProgress(progress: Double) -> Void
+}
+```
+
+`updateProgress` method is called when a progress animation is already show with the `tvProgress.showProgress` method. You can update your current progress animation view with the new progress value.
 
 ## Contributing to this project
 
