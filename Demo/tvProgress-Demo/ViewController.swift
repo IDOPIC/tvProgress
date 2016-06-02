@@ -76,15 +76,18 @@ class ViewController: UIViewController {
         
         NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)*/
         tvProgress.showProgress(0)
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(progressFu), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
     }
     
     func progressFu() -> Void {
         self.progress += 0.1
-        if self.progress >= 1 {
+        print(self.progress)
+        if self.progress <= 1 {
+            print("#1")
             tvProgress.showProgress(self.progress)
-            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(progressFu), userInfo: nil, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
         } else {
+            print("#2")
             tvProgress.dismiss()
             self.progress = 0
         }

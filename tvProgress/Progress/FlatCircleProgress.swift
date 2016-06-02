@@ -41,11 +41,13 @@ class FlatCircleProgress: tvProgressAnimatable {
     }
     
     func updateProgress(progress: Double) -> Void {
-        let start = CABasicAnimation(keyPath: "strokeEnd")
-        start.toValue = progress
-        start.beginTime = 0
-        start.duration = 0.25
+        let anim: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        anim.toValue = progress
+        anim.beginTime = 0
+        anim.duration = 0.25
+        anim.fillMode = kCAFillModeForwards
+        anim.removedOnCompletion = false
         
-        rectShape.addAnimation(start, forKey: nil)
+        rectShape.addAnimation(anim, forKey: nil)
     }
 }
