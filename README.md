@@ -136,6 +136,7 @@ We just saw that customization is available in every `tvProgress` method call. Y
 
 ```swift
 public var loaderType: tvLoaderType!
+public var progressType: tvProgressType!
 public var style: tvProgressStyle!
 public var font: UIFont!
 public var successImage: UIImage!
