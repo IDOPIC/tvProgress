@@ -30,7 +30,7 @@ $ brew install carthage
 To integrate `tvProgress` into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "tvProgress/tvProgress"
+github "sweebi/tvProgress"
 ```
 
 Run `carthage update` to build the framework and drag the built `tvProgress.framework` (in Carthage/Build/tvOS folder) into your Xcode project (Linked Frameworks and Libraries in `Targets`).
@@ -223,12 +223,12 @@ public protocol tvProgressAnimatable: tvLoaderAnimatable {
 
 ## Contributing to this project
 
-If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/tvProgress/tvProgress/issues/new).
+If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/sweebi/tvProgress/issues/new).
 
 ## License
 
-`tvProgress` is distributed under the terms and conditions of the [MIT license](https://github.com/tvProgress/tvProgress/blob/master/LICENSE). The success and error icons are made by [Freepik](http://www.freepik.com) from [Flaticon](http://www.flaticon.com) and are licensed under [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/).
+`tvProgress` is distributed under the terms and conditions of the [MIT license](https://github.com/sweebi/tvProgress/blob/master/LICENSE). The success and error icons are made by [Freepik](http://www.freepik.com) from [Flaticon](http://www.flaticon.com) and are licensed under [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/).
 
 ## Credits
 
-`tvProgress` is brought to you by [Cédric Eugeni](https://github.com/CedricEugeni), [Antoine Cormery](https://github.com/legomanfish) and [contributors to the project](https://github.com/tvProgress/tvProgress/graphs/contributors). If you're using `tvProgress` in your project, attribution would be very appreciated.
+`tvProgress` is brought to you by [Cédric Eugeni](https://github.com/CedricEugeni), [Antoine Cormery](https://github.com/legomanfish) and [contributors to the project](https://github.com/sweebi/tvProgress/graphs/contributors). If you're using `tvProgress` in your project, attribution would be very appreciated.
