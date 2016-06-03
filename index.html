@@ -120,6 +120,26 @@ You can either :</p>
 </ul>
 
 <h3>
+<a id="showing-a-progress-animation" class="anchor" href="#showing-a-progress-animation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Showing a progress animation</h3>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">static</span> <span class="pl-k">public</span> <span class="pl-k">func</span> <span class="pl-en">showProgress</span>(progress: <span class="pl-c1">Double</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>, status: <span class="pl-c1">String</span>? <span class="pl-k">=</span> <span class="pl-k">.</span>None, contentView: UIView? <span class="pl-k">=</span> <span class="pl-k">.</span>None, <span class="pl-en">progressType</span> <span class="pl-smi">pt</span>: tvProgressType? <span class="pl-k">=</span> <span class="pl-k">.</span>None, style: tvProgressStyle? <span class="pl-k">=</span> <span class="pl-k">.</span>None, <span class="pl-en">withBlurView</span> <span class="pl-smi">addBlurView</span>: <span class="pl-c1">Bool</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>, menuButtonDidPress: (() <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>)? = .None, playButtonDidPress: (() <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>)? = .None) <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span></pre></div>
+
+<p>Each parameter is optional.
+You can either :</p>
+
+<ul>
+<li>simply call <code>showProgress()</code> method to display a simple progress animation</li>
+<li>specify the progress value (must be between 0 and 1)</li>
+<li>specify a status to display a text</li>
+<li>specify a contentView to display the loader on a specific UIView</li>
+<li>specify a loader to change the animation using <code>tvProgressType</code> enum</li>
+<li>specify a style using <code>tvProgressStyle</code> enum</li>
+<li>specify if you want the background Blur View via the addBlurView parameter</li>
+<li>specify a closure to be executed when the user press the <code>Menu</code> button while <code>tvProgress</code> is displayed</li>
+<li>specify a closure to be executed when the user press the <code>Play/Pause</code> button while <code>tvProgress</code> is displayed</li>
+</ul>
+
+<h3>
 <a id="dismissing-the-hud" class="anchor" href="#dismissing-the-hud" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dismissing the HUD</h3>
 
 <p>The HUD can be dismissed using:</p>
@@ -152,6 +172,7 @@ Following parameters are specific to success / error display :</p>
 <p>We just saw that customization is available in every <code>tvProgress</code> method call. You also can globally customize <code>tvProgress</code> using the following properties :</p>
 
 <div class="highlight highlight-source-swift"><pre><span class="pl-k">public</span> <span class="pl-k">var</span> loaderType: tvLoaderType<span class="pl-k">!</span>
+<span class="pl-k">public</span> <span class="pl-k">var</span> progressType: tvProgressType<span class="pl-k">!</span>
 <span class="pl-k">public</span> <span class="pl-k">var</span> style: tvProgressStyle<span class="pl-k">!</span>
 <span class="pl-k">public</span> <span class="pl-k">var</span> font: UIFont<span class="pl-k">!</span>
 <span class="pl-k">public</span> <span class="pl-k">var</span> successImage: UIImage<span class="pl-k">!</span>
@@ -202,6 +223,25 @@ Following parameters are specific to success / error display :</p>
 </ul>
 
 <h3>
+<a id="tvprogresstype-enum" class="anchor" href="#tvprogresstype-enum" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tvProgressType Enum</h3>
+
+<p><code>tvProgressType</code> is an enum that allows you to customize the appearance of the progress animation when <code>tvProgress</code> is displayed.</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">public</span> <span class="pl-k">enum</span> tvProgressType {
+    <span class="pl-k">case</span> FlatCircle()
+    <span class="pl-k">case</span> Custom(cp: tvProgressAnimatable<span class="pl-k">.</span><span class="pl-k">Type</span>)
+}</pre></div>
+
+<p>The enum has 2 different cases :</p>
+
+<ul>
+<li>
+<code>FlatCircle</code> case that allows you to display a simple animated circle</li>
+<li>
+<code>Custom</code> case is here to allow you to add your own animation. You have to pass a parameter that is a class type confirming to <code>tvProgressAnimatable</code> protocol.</li>
+</ul>
+
+<h3>
 <a id="tvloaderanimatable-protocol" class="anchor" href="#tvloaderanimatable-protocol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tvLoaderAnimatable Protocol</h3>
 
 <p>You can implement your own class to customize the loader appearance. You can refer to the <code>Demo</code> app to see how you can implement your own tvLoaderAnimatable class.</p>
@@ -212,6 +252,17 @@ Following parameters are specific to success / error display :</p>
 }</pre></div>
 
 <p><code>configureWithStyle</code> method is the main method you have to implement. This is where you are going to create a view that is animated. You have to return a tuple that contains the view and a closure. The closure will allow us to remove animations when we dismiss <code>tvProgress</code>.</p>
+
+<h3>
+<a id="tvprogressanimatable-protocol" class="anchor" href="#tvprogressanimatable-protocol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tvProgressAnimatable Protocol</h3>
+
+<p>You can implement your own class to customize the progress animation appearance. You can refer to the <code>Demo</code> app to see how you can implement your own tvProgressAnimatable class.</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">public</span> <span class="pl-k">protocol</span> tvProgressAnimatable: tvLoaderAnimatable {
+    <span class="pl-k">func</span> <span class="pl-en">updateProgress</span>(progress: <span class="pl-c1">Double</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>
+}</pre></div>
+
+<p><code>updateProgress</code> method is called when a progress animation is already show with the <code>tvProgress.showProgress</code> method. You can update your current progress animation view with the new progress value.</p>
 
 <h2>
 <a id="contributing-to-this-project" class="anchor" href="#contributing-to-this-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing to this project</h2>
