@@ -12,7 +12,7 @@ internal enum visibleType {
     case Loader()
     case Success()
     case Error()
-    case Progress(view: tvProgressAnimatable)
+    case Progress(view: tvProgressAnimatable, statusLabel: UILabel?)
 }
 
 public class tvProgress: UIView {

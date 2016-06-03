@@ -46,18 +46,26 @@ extension tvProgress {
                 instance._finishLoaderCompletion = cnfg.completion
                 views.insert(loaderView, atIndex: 0)
                 
+                let sLabel: UILabel?
                 if let s = status {
-                    let sLabel: UILabel = tvProgress.generateStatusLabelWithInstance(instance, andStatus: s, andStyle: style ?? instance.style)
+                    sLabel = tvProgress.generateStatusLabelWithInstance(instance, andStatus: s, andStyle: style ?? instance.style)
                     let v: UIView = views[views.count - 1]
-                    sLabel.frame = CGRectMake(instance.center.x - (sLabel.frame.width / 2), v.frame.origin.y + v.frame.height + 30, sLabel.frame.width, sLabel.frame.height)
-                    views.insert(sLabel, atIndex: views.count)
+                    sLabel!.frame = CGRectMake(instance.center.x - (sLabel!.frame.width / 2), v.frame.origin.y + v.frame.height + 30, sLabel!.frame.width, sLabel!.frame.height)
+                    views.insert(sLabel!, atIndex: views.count)
+                } else {
+                    sLabel = .None
                 }
                 
-                tvProgress.showWithInstance(instance, andVisibleType: visibleType.Progress(view: progress), andContent: contentView, andViews: views, andStyle: style, withBlurView: addBlurView, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
+                tvProgress.showWithInstance(instance, andVisibleType: visibleType.Progress(view: progress, statusLabel: sLabel), andContent: contentView, andViews: views, andStyle: style, withBlurView: addBlurView, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
             } else if let v: visibleType = instance._isVisible {
                 switch v {
-                case .Progress(let p):
+                case .Progress(let p, let sLabel):
                     p.updateProgress(progress)
+                    if let s: String = status {
+                        let tmpFrame: CGRect = tvProgress.generateStatusLabelWithInstance(instance, andStatus: s, andStyle: style ?? instance.style).frame
+                        sLabel?.frame = CGRectMake(instance.center.x - (tmpFrame.width / 2), sLabel?.frame.origin.y ?? 0, tmpFrame.width, tmpFrame.height)
+                    }
+                    sLabel?.text = status
                     break
                 default:
                     break
