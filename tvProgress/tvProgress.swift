@@ -45,14 +45,19 @@ public class tvProgress: UIView {
         return instance
     }()
     
+    public static func sdismiss() -> Void {
+        dismiss(0, completion: .None)
+    }
+    
     //MARK: - Methods
     /**
      To dismiss the loader view
      
      - Parameters:
         - delay: time before dismissing the loader
+        - completion: completion block at end
      */
-    public static func dismiss(delay: Double = 0) -> Void {
+    public static func dismiss(delay: Double = 0, completion: (() -> Void)? = .None) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
             if instance.isVisible {
@@ -72,6 +77,8 @@ public class tvProgress: UIView {
                     instance._isVisible = nil
                     
                     instance.frame = (UIApplication.sharedApplication().keyWindow?.subviews.last)!.frame
+                    
+                    completion?()
                 }
             }
         }

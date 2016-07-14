@@ -53,7 +53,7 @@ extension tvProgress {
                 tvProgress.showWithInstance(instance, andVisibleType: visibleType.Error(), andViews: views, andStyle: style, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
                 
                 if let s = status where action == nil {
-                    NSTimer.scheduledTimerWithTimeInterval(tvProgress.displayDurationForString(s), target: self, selector: #selector(dismiss), userInfo: nil, repeats: false)
+                    NSTimer.scheduledTimerWithTimeInterval(tvProgress.displayDurationForString(s), target: self, selector: #selector(sdismiss), userInfo: nil, repeats: false)
                 }
             }
         }
