@@ -32,7 +32,7 @@ public extension tvProgress {
         - menuButtonDidPress: specify a closure to be executed when the user press the Menu button while tvProgress is displayed
         - playButtonDidPress: specify a closure to be executed when the user press the Play/Pause button while tvProgress is displayed
      */
-    public static func show(status: String? = .None, contentView: UIView? = .None, loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
+    public static func show(status: String? = .None, contentView: UIView? = .None, loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None, completion: (() -> Void)? = .None) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock() { () -> Void in
             if !instance.isVisible {
@@ -51,7 +51,7 @@ public extension tvProgress {
                     views.insert(sLabel, atIndex: views.count)
                 }
                 
-                tvProgress.showWithInstance(instance, andVisibleType: visibleType.Loader(), andContent: contentView, andViews: views, andStyle: style, withBlurView: addBlurView, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
+                tvProgress.showWithInstance(instance, andVisibleType: visibleType.Loader(), andContent: contentView, andViews: views, andStyle: style, withBlurView: addBlurView, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress, completion: completion)
             }
         }
     }

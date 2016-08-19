@@ -33,7 +33,7 @@ extension tvProgress {
         - menuButtonDidPress: specify a closure to be executed when the user press the Menu button while tvProgress is displayed
         - playButtonDidPress: specify a closure to be executed when the user press the Play/Pause button while tvProgress is displayed
      */
-    static public func showProgress(progress: Double = 0, status: String? = .None, contentView: UIView? = .None, progressType pt: tvProgressType? = .None, style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
+    static public func showProgress(progress: Double = 0, status: String? = .None, contentView: UIView? = .None, progressType pt: tvProgressType? = .None, style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None, completion: (() -> Void)? = .None) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock() { () -> Void in
             if !instance.isVisible {
@@ -56,7 +56,7 @@ extension tvProgress {
                     sLabel = .None
                 }
                 
-                tvProgress.showWithInstance(instance, andVisibleType: visibleType.Progress(view: progress, statusLabel: sLabel), andContent: contentView, andViews: views, andStyle: style, withBlurView: addBlurView, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
+                tvProgress.showWithInstance(instance, andVisibleType: visibleType.Progress(view: progress, statusLabel: sLabel), andContent: contentView, andViews: views, andStyle: style, withBlurView: addBlurView, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress, completion: completion)
             } else if let v: visibleType = instance._isVisible {
                 switch v {
                 case .Progress(let p, let sLabel):

@@ -64,7 +64,7 @@ public class tvProgress: UIView {
                 UIView.animateWithDuration(instance.fadeOutAnimationDuration, delay: delay, options: .CurveEaseInOut, animations: { () -> Void in
                     instance.alpha = 0
                 }) { (_) -> Void in
-                    for v in instance.subviews where !(v is UIVisualEffectView){
+                    for v in instance.subviews where !(v is UIVisualEffectView) {
                         v.removeFromSuperview()
                     }
                     instance._blurView?.removeFromSuperview()
@@ -89,7 +89,7 @@ public class tvProgress: UIView {
         return max(Double(string.characters.count) * 0.06 + 0.5, tvProgress.sharedInstance.minimumDismissDuration)
     }
     
-    internal static func showWithInstance(instance: tvProgress, andVisibleType vt: visibleType, andContent contentView: UIView? = .None, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
+    internal static func showWithInstance(instance: tvProgress, andVisibleType vt: visibleType, andContent contentView: UIView? = .None, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None, completion: (() -> Void)? = .None) -> Void {
         guard contentView == .None || (menuButtonDidPress == nil && playButtonDidPress == nil) else {
             debugPrint("WARNING: you can't set a contentView with button completion")
             return
@@ -125,6 +125,8 @@ public class tvProgress: UIView {
                 }, completion: { (finished) in
                     refParentView.setNeedsFocusUpdate()
                     refParentView.updateFocusIfNeeded()
+                    
+                    completion?()
             })
         }
     }

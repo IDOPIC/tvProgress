@@ -21,7 +21,7 @@ extension tvProgress {
         - menuButtonDidPress: specify a closure to be executed when the user press the Menu button while tvProgress is displayed
         - playButtonDidPress: specify a closure to be executed when the user press the Play/Pause button while tvProgress is displayed
      */
-    public static func showSuccessWithStatus(status: String? = .None, andSuccessImage successImage: UIImage? = .None, andStyle style: tvProgressStyle? = .None, andAction action: (label: String, closure: (Void -> Void))? = .None, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void {
+    public static func showSuccessWithStatus(status: String? = .None, andSuccessImage successImage: UIImage? = .None, andStyle style: tvProgressStyle? = .None, andAction action: (label: String, closure: (Void -> Void))? = .None, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None, completion: (() -> Void)? = .None) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         NSOperationQueue.mainQueue().addOperationWithBlock() { () -> Void in
             if !instance.isVisible {
@@ -52,7 +52,7 @@ extension tvProgress {
                     views.insert(button, atIndex: views.count)
                 }
                 
-                tvProgress.showWithInstance(instance, andVisibleType: visibleType.Success(), andViews: views, andStyle: style, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress)
+                tvProgress.showWithInstance(instance, andVisibleType: visibleType.Success(), andViews: views, andStyle: style, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress, completion: completion)
                 
                 if let s = status where action == nil {
                     NSTimer.scheduledTimerWithTimeInterval(tvProgress.displayDurationForString(s), target: self, selector: #selector(dismiss), userInfo: nil, repeats: false)
