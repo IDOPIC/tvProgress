@@ -21,45 +21,45 @@ extension tvProgress {
         - menuButtonDidPress: specify a closure to be executed when the user press the Menu button while tvProgress is displayed
         - playButtonDidPress: specify a closure to be executed when the user press the Play/Pause button while tvProgress is displayed
      */
-    public static func showErrorWithStatus(status: String? = .None, andErrorImage errorImage: UIImage? = .None, andStyle style: tvProgressStyle? = .None, andAction action: (label: String, closure: (Void -> Void))? = .None, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None, completion: (() -> Void)? = .None) -> Void {
+    public static func showErrorWithStatus(_ status: String? = .none, andErrorImage errorImage: UIImage? = .none, andStyle style: tvProgressStyle? = .none, andAction action: (label: String, closure: ((Void) -> Void))? = .none, menuButtonDidPress: (() -> Void)? = .none, playButtonDidPress: (() -> Void)? = .none, completion: (() -> Void)? = .none) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         let f: () -> Void = { () -> Void in
             var views: [UIView] = []
             let ei: UIImage = errorImage ?? instance.errorImage
-            let errorImageView: UIImageView = UIImageView(frame: CGRectMake(instance.center.x - ei.size.width / 2, instance.center.y - ei.size.height / 2, ei.size.width, ei.size.height))
+            let errorImageView: UIImageView = UIImageView(frame: CGRect(x: instance.center.x - ei.size.width / 2, y: instance.center.y - ei.size.height / 2, width: ei.size.width, height: ei.size.height))
             errorImageView.image = ei
             errorImageView.tintColor = (style ?? instance.style).mainColor
-            views.insert(errorImageView, atIndex: 0)
+            views.insert(errorImageView, at: 0)
             
             if let s = status {
                 let sLabel: UILabel = tvProgress.generateStatusLabelWithInstance(instance, andStatus: s, andStyle: style ?? instance.style)
                 let v: UIView = views[views.count - 1]
-                sLabel.frame = CGRectMake(instance.center.x - (sLabel.frame.width / 2), v.frame.origin.y + v.frame.height + 30, sLabel.frame.width, sLabel.frame.height)
-                views.insert(sLabel, atIndex: views.count)
+                sLabel.frame = CGRect(x: instance.center.x - (sLabel.frame.width / 2), y: v.frame.origin.y + v.frame.height + 30, width: sLabel.frame.width, height: sLabel.frame.height)
+                views.insert(sLabel, at: views.count)
             }
             
             if let act = action {
-                let button: UIButton = UIButton(type: .System)
-                button.setTitle(act.label, forState: .Normal)
+                let button: UIButton = UIButton(type: .system)
+                button.setTitle(act.label, for: UIControlState())
                 button.sizeToFit()
                 button.actionHandleWithAction(act.closure)
                 let v: UIView = views[views.count - 1]
-                button.frame = CGRectMake(instance.center.x - (button.frame.width / 2), v.frame.origin.y + v.frame.height + 50, button.frame.width, button.frame.height)
+                button.frame = CGRect(x: instance.center.x - (button.frame.width / 2), y: v.frame.origin.y + v.frame.height + 50, width: button.frame.width, height: button.frame.height)
                 
-                views.insert(button, atIndex: views.count)
+                views.insert(button, at: views.count)
             }
             
-            tvProgress.showWithInstance(instance, andVisibleType: visibleType.Error(), andViews: views, andStyle: style, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress, completion: completion)
+            tvProgress.showWithInstance(instance, andVisibleType: visibleType.error(), andViews: views, andStyle: style, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress, completion: completion)
             
-            if let s = status where action == nil {
-                NSTimer.scheduledTimerWithTimeInterval(tvProgress.displayDurationForString(s), target: self, selector: #selector(sdismiss), userInfo: nil, repeats: false)
+            if let s = status , action == nil {
+                Timer.scheduledTimer(timeInterval: tvProgress.displayDurationForString(s), target: self, selector: #selector(sdismiss), userInfo: nil, repeats: false)
             }
         }
         
-        NSOperationQueue.mainQueue().addOperationWithBlock() { () -> Void in
+        OperationQueue.main.addOperation() { () -> Void in
             if instance.isVisible {
                 tvProgress.dismiss { () -> Void in
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.25 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () -> Void in
                         f()
                     }
                 }

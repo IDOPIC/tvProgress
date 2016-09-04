@@ -16,39 +16,39 @@ import Foundation
  - Custom: you can create your own style, by specifying a main color, a secondary color and a blur effect style
  */
 public enum tvProgressStyle {
-    case Dark
-    case Light
-    case Custom(mainColor: UIColor, secondaryColor: UIColor, blurStyle: UIBlurEffectStyle)
+    case dark
+    case light
+    case custom(mainColor: UIColor, secondaryColor: UIColor, blurStyle: UIBlurEffectStyle)
     
     public var mainColor: UIColor {
         switch self {
-        case .Dark:
-            return UIColor.whiteColor()
-        case .Light:
-            return UIColor.blackColor()
-        case .Custom(let mainColor, _, _):
+        case .dark:
+            return UIColor.white
+        case .light:
+            return UIColor.black
+        case .custom(let mainColor, _, _):
             return mainColor
         }
     }
     
     public var secondaryColor: UIColor {
         switch self {
-        case .Dark:
-            return UIColor.blackColor()
-        case .Light:
-            return UIColor.whiteColor()
-        case .Custom(_, let secondaryColor, _):
+        case .dark:
+            return UIColor.black
+        case .light:
+            return UIColor.white
+        case .custom(_, let secondaryColor, _):
             return secondaryColor
         }
     }
     
     public var blurStyle: UIBlurEffectStyle {
         switch self {
-        case .Dark:
-            return .Dark
-        case .Light:
-            return .Light
-        case .Custom(_, _, let customBlurStyle):
+        case .dark:
+            return .dark
+        case .light:
+            return .light
+        case .custom(_, _, let customBlurStyle):
             return customBlurStyle
         }
     }

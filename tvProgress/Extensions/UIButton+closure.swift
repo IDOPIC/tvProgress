@@ -9,7 +9,7 @@
 import Foundation
 
 extension UIButton {
-    private func actionHandleBlock(action:(() -> Void)? = nil) {
+    fileprivate func actionHandleBlock(_ action:(() -> Void)? = nil) {
         struct __ {
             static var action: (() -> Void)?
         }
@@ -20,12 +20,12 @@ extension UIButton {
         }
     }
     
-    @objc private func triggerActionHandleBlock() -> Void {
+    @objc fileprivate func triggerActionHandleBlock() -> Void {
         self.actionHandleBlock()
     }
     
-    public func actionHandleWithAction(action: (() -> Void)) -> Void {
+    public func actionHandleWithAction(_ action: (() -> Void)) -> Void {
         self.actionHandleBlock(action)
-        self.addTarget(self, action: #selector(triggerActionHandleBlock), forControlEvents: UIControlEvents.PrimaryActionTriggered)
+        self.addTarget(self, action: #selector(triggerActionHandleBlock), for: UIControlEvents.primaryActionTriggered)
     }
 }

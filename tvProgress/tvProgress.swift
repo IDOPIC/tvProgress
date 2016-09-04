@@ -9,13 +9,13 @@
 import UIKit
 
 internal enum visibleType {
-    case Loader()
-    case Success()
-    case Error()
-    case Progress(view: tvProgressAnimatable, statusLabel: UILabel?)
+    case loader()
+    case success()
+    case error()
+    case progress(view: tvProgressAnimatable, statusLabel: UILabel?)
 }
 
-public class tvProgress: UIView {
+open class tvProgress: UIView {
     //MARK: - Properties
     internal var _blurView: UIVisualEffectView?
     internal var _loaderType: tvLoaderType!
@@ -28,7 +28,7 @@ public class tvProgress: UIView {
     internal var _fadeInAnimationDuration: Double!
     internal var _fadeOutAnimationDuration: Double!
     internal var _isVisible: visibleType? = nil
-    public var isVisible: Bool {
+    open var isVisible: Bool {
         get {
             return _isVisible != nil
         }
@@ -40,13 +40,13 @@ public class tvProgress: UIView {
     //MARK: - Singleton
     internal static let sharedInstance: tvProgress = {
         let instance = tvProgress()
-        instance.frame = UIScreen.mainScreen().bounds
+        instance.frame = UIScreen.main.bounds
         instance.alpha = 0
         return instance
     }()
     
-    public static func sdismiss() -> Void {
-        dismiss(0, completion: .None)
+    open static func sdismiss() -> Void {
+        dismiss(0, completion: .none)
     }
     
     //MARK: - Methods
@@ -57,11 +57,11 @@ public class tvProgress: UIView {
         - delay: time before dismissing the loader
         - completion: completion block at end
      */
-    public static func dismiss(delay: Double = 0, completion: (() -> Void)? = .None) -> Void {
+    open static func dismiss(_ delay: Double = 0, completion: (() -> Void)? = .none) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+        OperationQueue.main.addOperation { () -> Void in
             if instance.isVisible {
-                UIView.animateWithDuration(instance.fadeOutAnimationDuration, delay: delay, options: .CurveEaseInOut, animations: { () -> Void in
+                UIView.animate(withDuration: instance.fadeOutAnimationDuration, delay: delay, options: UIViewAnimationOptions(), animations: { () -> Void in
                     instance.alpha = 0
                 }) { (_) -> Void in
                     for v in instance.subviews where !(v is UIVisualEffectView) {
@@ -69,14 +69,14 @@ public class tvProgress: UIView {
                     }
                     instance._blurView?.removeFromSuperview()
                     instance.removeEventCatch()
-                    instance.menuButtonDidPress = .None
-                    instance.playPauseButtonDidPress = .None
+                    instance.menuButtonDidPress = .none
+                    instance.playPauseButtonDidPress = .none
                     instance._finishLoaderCompletion?()
-                    instance._finishLoaderCompletion = .None
+                    instance._finishLoaderCompletion = .none
                     instance.removeFromSuperview()
                     instance._isVisible = nil
                     
-                    instance.frame = (UIApplication.sharedApplication().keyWindow?.subviews.last)!.frame
+                    instance.frame = (UIApplication.shared.keyWindow?.subviews.last)!.frame
                     
                     completion?()
                 }
@@ -85,12 +85,12 @@ public class tvProgress: UIView {
     }
     
     //MARK: - Build anc Config Tools
-    internal static func displayDurationForString(string: String) -> Double {
+    internal static func displayDurationForString(_ string: String) -> Double {
         return max(Double(string.characters.count) * 0.06 + 0.5, tvProgress.sharedInstance.minimumDismissDuration)
     }
     
-    internal static func showWithInstance(instance: tvProgress, andVisibleType vt: visibleType, andContent contentView: UIView? = .None, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None, completion: (() -> Void)? = .None) -> Void {
-        guard contentView == .None || (menuButtonDidPress == nil && playButtonDidPress == nil) else {
+    internal static func showWithInstance(_ instance: tvProgress, andVisibleType vt: visibleType, andContent contentView: UIView? = .none, andViews views: [UIView] = [], andStyle style: tvProgressStyle? = .none, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .none, playButtonDidPress: (() -> Void)? = .none, completion: (() -> Void)? = .none) -> Void {
+        guard contentView == .none || (menuButtonDidPress == nil && playButtonDidPress == nil) else {
             debugPrint("WARNING: you can't set a contentView with button completion")
             return
         }
@@ -100,17 +100,17 @@ public class tvProgress: UIView {
             instance.menuButtonDidPress = menuButtonDidPress
             instance.playPauseButtonDidPress = playButtonDidPress
             
-            if contentView == .None {
+            if contentView == .none {
                 instance.setEventCatch()
             }
             
-            let refParentView: UIView = contentView ?? (UIApplication.sharedApplication().keyWindow?.subviews.last)!
+            let refParentView: UIView = contentView ?? (UIApplication.shared.keyWindow?.subviews.last)!
             instance.frame = refParentView.bounds
             if addBlurView {
                 let blurEffect: UIBlurEffect = UIBlurEffect(style: (style ?? instance.style).blurStyle)
                 instance._blurView = UIVisualEffectView(frame: refParentView.bounds)
                 instance._blurView?.effect = blurEffect
-                instance.userInteractionEnabled = true
+                instance.isUserInteractionEnabled = true
                 instance.addSubview(instance._blurView!)
             }
             
@@ -120,7 +120,7 @@ public class tvProgress: UIView {
             
             instance.alpha = 0
             refParentView.addSubview(instance)
-            UIView.animateWithDuration(instance.fadeInAnimationDuration, animations: {
+            UIView.animate(withDuration: instance.fadeInAnimationDuration, animations: {
                 instance.alpha = 1
                 }, completion: { (finished) in
                     refParentView.setNeedsFocusUpdate()
@@ -131,13 +131,13 @@ public class tvProgress: UIView {
         }
     }
     
-    internal static func generateStatusLabelWithInstance(instance: tvProgress, andStatus status: String, andStyle style: tvProgressStyle) -> UILabel {
+    internal static func generateStatusLabelWithInstance(_ instance: tvProgress, andStatus status: String, andStyle style: tvProgressStyle) -> UILabel {
         let statusLabel: UILabel = UILabel()
         
         statusLabel.text = status
         statusLabel.numberOfLines = 0
         statusLabel.font = instance.font
-        statusLabel.backgroundColor = UIColor.clearColor()
+        statusLabel.backgroundColor = UIColor.clear
         statusLabel.textColor = style.mainColor
         statusLabel.sizeToFit()
         
@@ -145,11 +145,11 @@ public class tvProgress: UIView {
     }
     
     //MARK: - Focus Engine
-    public override func canBecomeFocused() -> Bool {
+    /*open override var canBecomeFocused: Bool = {
         return tvProgress.sharedInstance.isVisible
-    }
+    }()*/
     
-    public override var preferredFocusedView: UIView? {
+    open override var preferredFocusedView: UIView? {
         for v in self.subviews {
             if v is UIButton {
                 return v

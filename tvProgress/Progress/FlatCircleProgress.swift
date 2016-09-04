@@ -12,25 +12,25 @@ class FlatCircleProgress: tvProgressAnimatable {
     
     //MARK: - Properties
     
-    private let rectShape = CAShapeLayer()
+    fileprivate let rectShape = CAShapeLayer()
     
     //MARK: - Methods
     
     required init() {
     }
     
-    func configureWithStyle(style: tvProgressStyle) -> (view: UIView, completion: () -> Void) {
-        let v: UIView = UIView(frame: CGRectMake(0, 0, 100, 100))
+    func configureWithStyle(_ style: tvProgressStyle) -> (view: UIView, completion: () -> Void) {
+        let v: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         let bounds: CGRect = v.frame
         self.rectShape.bounds = bounds
         self.rectShape.position = v.center
         self.rectShape.cornerRadius = bounds.width / 2
         v.layer.addSublayer(self.rectShape)
         
-        self.rectShape.path = UIBezierPath(ovalInRect: self.rectShape.bounds).CGPath
+        self.rectShape.path = UIBezierPath(ovalIn: self.rectShape.bounds).cgPath
         self.rectShape.lineWidth = 7.0
-        self.rectShape.strokeColor = style.mainColor.CGColor
-        self.rectShape.fillColor = UIColor.clearColor().CGColor
+        self.rectShape.strokeColor = style.mainColor.cgColor
+        self.rectShape.fillColor = UIColor.clear.cgColor
         self.rectShape.strokeStart = 0
         self.rectShape.strokeEnd = 0
         
@@ -40,14 +40,14 @@ class FlatCircleProgress: tvProgressAnimatable {
         return (v, completion)
     }
     
-    func updateProgress(progress: Double) -> Void {
+    func updateProgress(_ progress: Double) -> Void {
         let anim: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         anim.toValue = progress
         anim.beginTime = 0
         anim.duration = 0.25
         anim.fillMode = kCAFillModeForwards
-        anim.removedOnCompletion = false
+        anim.isRemovedOnCompletion = false
         
-        rectShape.addAnimation(anim, forKey: nil)
+        rectShape.add(anim, forKey: nil)
     }
 }

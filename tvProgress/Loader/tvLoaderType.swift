@@ -16,19 +16,19 @@ import Foundation
  - Custom: your can create your own loader by using this enum, you must specify a tvLoaderAnimatable.Type
  */
 public enum tvLoaderType {
-    case Default()
-    case AndroidStyle()
-    case Custom(cl: tvLoaderAnimatable.Type)
+    case `default`()
+    case androidStyle()
+    case custom(cl: tvLoaderAnimatable.Type)
     
-    func getInstance(style: tvProgressStyle, frame: CGRect = CGRectZero) -> (UIView, () -> Void) {
+    func getInstance(_ style: tvProgressStyle, frame: CGRect = CGRect.zero) -> (UIView, () -> Void) {
         switch self {
-        case .Default:
+        case .default:
             let loader: FlatCircleLoader = FlatCircleLoader.init()
             return loader.configureWithStyle(style)
-        case .AndroidStyle():
+        case .androidStyle():
             let loader: AndroidStyleLoader = AndroidStyleLoader.init()
             return loader.configureWithStyle(style)
-        case .Custom(let cl):
+        case .custom(let cl):
             let loader: tvLoaderAnimatable = cl.init()
             return loader.configureWithStyle(style)
         }

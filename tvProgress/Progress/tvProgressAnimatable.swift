@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol tvProgressAnimatable: tvLoaderAnimatable {
-    func updateProgress(progress: Double) -> Void
+    func updateProgress(_ progress: Double) -> Void
 }

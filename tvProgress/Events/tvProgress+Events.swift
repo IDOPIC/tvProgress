@@ -35,13 +35,13 @@ extension tvProgress {
         self._playPauseButtonPressClosure?()
     }
     
-    private func getEventCatch(events: [AnyObject]? = .None, getter: ((events: [AnyObject]) -> Void)? = .None) -> Void {
+    fileprivate func getEventCatch(_ events: [AnyObject]? = .none, getter: ((_ events: [AnyObject]) -> Void)? = .none) -> Void {
         struct __ {
             static var events: [AnyObject] = []
         }
         
         if getter != nil {
-            getter?(events: __.events)
+            getter?(__.events)
         }
         
         if events != nil {
@@ -51,11 +51,11 @@ extension tvProgress {
     
     internal func setEventCatch() -> Void {
         let tapMenuGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tvProgress.menuButtonDidPress(_:)))
-        tapMenuGesture.allowedPressTypes = [NSNumber(integer: (UIPressType.Menu.rawValue))]
+        tapMenuGesture.allowedPressTypes = [NSNumber(value: (UIPressType.menu.rawValue))]
         self.addGestureRecognizer(tapMenuGesture)
         
         let tapPlayPauseGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tvProgress.playPauseButtonDidPress(_:)))
-        tapPlayPauseGesture.allowedPressTypes = [NSNumber(integer: (UIPressType.PlayPause.rawValue))]
+        tapPlayPauseGesture.allowedPressTypes = [NSNumber(value: (UIPressType.playPause.rawValue))]
         self.addGestureRecognizer(tapPlayPauseGesture)
         
         self.getEventCatch([tapMenuGesture, tapPlayPauseGesture])

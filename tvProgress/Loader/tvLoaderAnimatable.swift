@@ -10,5 +10,5 @@ import Foundation
 
 public protocol tvLoaderAnimatable: class {
     init()
-    func configureWithStyle(style: tvProgressStyle) -> (view: UIView, completion: () -> Void)
+    func configureWithStyle(_ style: tvProgressStyle) -> (view: UIView, completion: () -> Void)
 }

@@ -15,14 +15,14 @@ import Foundation
  - Custom: you can create your own progress animation by using this enum, you must specify a tvProgressAnimatable.Type
  */
 public enum tvProgressType {
-    case FlatCircle()
-    case Custom(cp: tvProgressAnimatable.Type)
+    case flatCircle()
+    case custom(cp: tvProgressAnimatable.Type)
     
     var getInstance: tvProgressAnimatable {
         switch self {
-        case .FlatCircle:
+        case .flatCircle:
             return FlatCircleProgress()
-        case .Custom(let cp):
+        case .custom(let cp):
             return cp.init()
         }
     }

@@ -13,8 +13,8 @@ class FlatCircleLoader: tvLoaderAnimatable {
     required init() {
     }
     
-    func configureWithStyle(style: tvProgressStyle) -> (view: UIView, completion: () -> Void) {
-        let v: UIView = UIView(frame: CGRectMake(0, 0, 100, 100))
+    func configureWithStyle(_ style: tvProgressStyle) -> (view: UIView, completion: () -> Void) {
+        let v: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
         let bounds = v.frame
         let rectShape = CAShapeLayer()
@@ -23,10 +23,10 @@ class FlatCircleLoader: tvLoaderAnimatable {
         rectShape.cornerRadius = bounds.width / 2
         v.layer.addSublayer(rectShape)
         
-        rectShape.path = UIBezierPath(ovalInRect: rectShape.bounds).CGPath
+        rectShape.path = UIBezierPath(ovalIn: rectShape.bounds).cgPath
         rectShape.lineWidth = 7.0
-        rectShape.strokeColor = style.mainColor.CGColor
-        rectShape.fillColor = UIColor.clearColor().CGColor
+        rectShape.strokeColor = style.mainColor.cgColor
+        rectShape.fillColor = UIColor.clear.cgColor
         rectShape.strokeStart = 0
         rectShape.strokeEnd = 1
         
@@ -47,7 +47,7 @@ class FlatCircleLoader: tvLoaderAnimatable {
         group.autoreverses = false
         group.repeatCount = HUGE //infinite
         
-        rectShape.addAnimation(group, forKey: nil)
+        rectShape.add(group, forKey: nil)
         
         let completion: () -> Void = { () -> Void in
             rectShape.removeAllAnimations()

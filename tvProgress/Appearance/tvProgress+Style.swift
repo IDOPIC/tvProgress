@@ -12,38 +12,38 @@ public extension tvProgress {
     //MARK: - Properties
     public var style: tvProgressStyle! {
         get {
-            return self._style ?? .Light
+            return self._style ?? .light
         }
         set(newStyle) {
-            self._style = newStyle ?? .Light
+            self._style = newStyle ?? .light
         }
     }
     
     public var font: UIFont! {
         get {
-            return self._font ?? UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+            return self._font ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         }
         set(newFont) {
-            self._font = newFont ?? UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+            self._font = newFont ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         }
     }
     
     public var successImage: UIImage! {
         get {
-            return self._successImage ?? UIImage(named: "ic_success", inBundle: NSBundle(forClass: tvProgress.self), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
+            return self._successImage ?? UIImage(named: "ic_success", in: Bundle(for: tvProgress.self), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         }
         set(newImage) {
-            self._successImage = newImage ?? UIImage(named: "ic_success", inBundle: NSBundle(forClass: tvProgress.self), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
+            self._successImage = newImage ?? UIImage(named: "ic_success", in: Bundle(for: tvProgress.self), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         }
     }
     
     public var errorImage: UIImage! {
         get {
-            return self._errorImage ?? UIImage(named: "ic_error", inBundle: NSBundle(forClass: tvProgress.self), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
+            return self._errorImage ?? UIImage(named: "ic_error", in: Bundle(for: tvProgress.self), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
         }
         set(newImage) {
-            self._errorImage = newImage ?? UIImage(named: "ic_error", inBundle: NSBundle(forClass: tvProgress.self), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
+            self._errorImage = newImage ?? UIImage(named: "ic_error", in: Bundle(for: tvProgress.self), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
         }
     }

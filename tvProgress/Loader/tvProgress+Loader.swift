@@ -12,10 +12,10 @@ public extension tvProgress {
     //MARK: - Properties
     public var loaderType: tvLoaderType! {
         get {
-            return self._loaderType ?? .Default()
+            return self._loaderType ?? .default()
         }
         set(newLoader) {
-            self._loaderType = newLoader ?? .Default()
+            self._loaderType = newLoader ?? .default()
         }
     }
     
@@ -32,26 +32,26 @@ public extension tvProgress {
         - menuButtonDidPress: specify a closure to be executed when the user press the Menu button while tvProgress is displayed
         - playButtonDidPress: specify a closure to be executed when the user press the Play/Pause button while tvProgress is displayed
      */
-    public static func show(status: String? = .None, contentView: UIView? = .None, loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None, completion: (() -> Void)? = .None) -> Void {
+    public static func show(_ status: String? = .none, contentView: UIView? = .none, loaderType lt: tvLoaderType? = .none, style: tvProgressStyle? = .none, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .none, playButtonDidPress: (() -> Void)? = .none, completion: (() -> Void)? = .none) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
-        NSOperationQueue.mainQueue().addOperationWithBlock() { () -> Void in
+        OperationQueue.main.addOperation() { () -> Void in
             if !instance.isVisible {
-                instance.frame = contentView?.bounds ?? UIScreen.mainScreen().bounds
+                instance.frame = contentView?.bounds ?? UIScreen.main.bounds
                 var views: [UIView] = []
                 let loader: (view: UIView, completion: () -> Void) = (lt ?? instance.loaderType).getInstance(style ?? instance.style)
                 let loaderView: UIView = loader.0
-                loaderView.frame = CGRectMake(instance.center.x - (loaderView.frame.width / 2), instance.center.y - (loaderView.frame.height / 2), loaderView.frame.width, loaderView.frame.height)
+                loaderView.frame = CGRect(x: instance.center.x - (loaderView.frame.width / 2), y: instance.center.y - (loaderView.frame.height / 2), width: loaderView.frame.width, height: loaderView.frame.height)
                 instance._finishLoaderCompletion = loader.completion
-                views.insert(loaderView, atIndex: 0)
+                views.insert(loaderView, at: 0)
                 
                 if let s = status {
                     let sLabel: UILabel = tvProgress.generateStatusLabelWithInstance(instance, andStatus: s, andStyle: style ?? instance.style)
                     let v: UIView = views[views.count - 1]
-                    sLabel.frame = CGRectMake(instance.center.x - (sLabel.frame.width / 2), v.frame.origin.y + v.frame.height + 30, sLabel.frame.width, sLabel.frame.height)
-                    views.insert(sLabel, atIndex: views.count)
+                    sLabel.frame = CGRect(x: instance.center.x - (sLabel.frame.width / 2), y: v.frame.origin.y + v.frame.height + 30, width: sLabel.frame.width, height: sLabel.frame.height)
+                    views.insert(sLabel, at: views.count)
                 }
                 
-                tvProgress.showWithInstance(instance, andVisibleType: visibleType.Loader(), andContent: contentView, andViews: views, andStyle: style, withBlurView: addBlurView, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress, completion: completion)
+                tvProgress.showWithInstance(instance, andVisibleType: visibleType.loader(), andContent: contentView, andViews: views, andStyle: style, withBlurView: addBlurView, menuButtonDidPress: menuButtonDidPress, playButtonDidPress: playButtonDidPress, completion: completion)
             }
         }
     }
