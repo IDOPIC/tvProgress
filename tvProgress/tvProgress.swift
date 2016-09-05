@@ -145,9 +145,11 @@ open class tvProgress: UIView {
     }
     
     //MARK: - Focus Engine
-    /*open override var canBecomeFocused: Bool = {
-        return tvProgress.sharedInstance.isVisible
-    }()*/
+    open override var canBecomeFocused: Bool {
+        get {
+            return true
+        }
+    }
     
     open override var preferredFocusedView: UIView? {
         for v in self.subviews {
