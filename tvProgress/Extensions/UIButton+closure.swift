@@ -24,7 +24,7 @@ extension UIButton {
         self.actionHandleBlock()
     }
     
-    public func actionHandleWithAction(_ action: (() -> Void)) -> Void {
+    public func actionHandleWithAction(_ action: @escaping (() -> Void)) -> Void {
         self.actionHandleBlock(action)
         self.addTarget(self, action: #selector(triggerActionHandleBlock), for: UIControlEvents.primaryActionTriggered)
     }
