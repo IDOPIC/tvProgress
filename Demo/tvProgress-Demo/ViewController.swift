@@ -14,47 +14,47 @@ class ViewController: UIViewController {
     @IBOutlet weak var contentViewOutlet: UIView!
     
     //MARK: - IBActions
-    @IBAction func showAction(sender: AnyObject) {
+    @IBAction func showAction(_ sender: AnyObject) {
         tvProgress.show()
         
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
     }
     
-    @IBAction func showWithStatusAction(sender: AnyObject) {
+    @IBAction func showWithStatusAction(_ sender: AnyObject) {
         tvProgress.show("Loading ...")
         
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
     }
     
-    @IBAction func showWithStyleAction(sender: AnyObject) {
-        tvProgress.show(style: tvProgressStyle.Dark)
+    @IBAction func showWithStyleAction(_ sender: AnyObject) {
+        tvProgress.show(style: tvProgressStyle.dark)
         
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
     }
     
-    @IBAction func showWithStatusAndStyleAction(sender: AnyObject) {
-        tvProgress.show("Loading ...", style: tvProgressStyle.Dark)
+    @IBAction func showWithStatusAndStyleAction(_ sender: AnyObject) {
+        tvProgress.show("Loading ...", style: tvProgressStyle.dark)
         
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
     }
     
-    @IBAction func showAndroidStyleAction(sender: AnyObject) {
-        tvProgress.show(loaderType: tvLoaderType.AndroidStyle(), style: tvProgressStyle.Dark)
+    @IBAction func showAndroidStyleAction(_ sender: AnyObject) {
+        tvProgress.show(loaderType: tvLoaderType.androidStyle(), style: tvProgressStyle.dark)
         
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
     }
     
-    @IBAction func customLoaderButtonAction(sender: AnyObject) {
-        tvProgress.show(loaderType: tvLoaderType.Custom(cl: SweebiLoader.self), style: tvProgressStyle.Dark)
+    @IBAction func customLoaderButtonAction(_ sender: AnyObject) {
+        tvProgress.show(loaderType: tvLoaderType.custom(cl: SweebiLoader.self), style: tvProgressStyle.dark)
         
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
     }
     
-    @IBAction func showSuccessMessageAction(sender: AnyObject) {
+    @IBAction func showSuccessMessageAction(_ sender: AnyObject) {
         tvProgress.showSuccessWithStatus("This is a success")
     }
     
-    @IBAction func showErrorMessageAction(sender: AnyObject) {
+    @IBAction func showErrorMessageAction(_ sender: AnyObject) {
         tvProgress.showErrorWithStatus("This is an error", menuButtonDidPress: { () -> Void in
             debugPrint("Menu button did press closure")
         }) { () -> Void in
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func showSuccessWithActionAction(sender: AnyObject) {
+    @IBAction func showSuccessWithActionAction(_ sender: AnyObject) {
         tvProgress.showSuccessWithStatus("This is a success with Action !", andAction: ("Execute action", { () in
             debugPrint("Yeah!")
             tvProgress.dismiss()
@@ -71,25 +71,25 @@ class ViewController: UIViewController {
     
     var progress: Int = -1
     
-    @IBAction func showOnContentViewAction(sender: AnyObject) {
-        tvProgress.show(.None, contentView: self.contentViewOutlet, loaderType: tvLoaderType.Default(), style: tvProgressStyle.Light, withBlurView: false)
+    @IBAction func showOnContentViewAction(_ sender: AnyObject) {
+        tvProgress.show(.none, contentView: self.contentViewOutlet, loaderType: tvLoaderType.default(), style: tvProgressStyle.light, withBlurView: false)
         
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(dismissAction), userInfo: nil, repeats: false)
     }
     
-    @IBAction func showProgressAction(sender: AnyObject) {
+    @IBAction func showProgressAction(_ sender: AnyObject) {
         if self.progress < 0 {
             self.progress = 0
-            tvProgress.showProgress(0, style: .Dark)
-            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
+            tvProgress.showProgress(0, style: .dark)
+            Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
         }
     }
     
-    @IBAction func showCustomProgressAction(sender: AnyObject) {
+    @IBAction func showCustomProgressAction(_ sender: AnyObject) {
         if self.progress < 0 {
             self.progress = 0
-            tvProgress.showProgress(status: "0%", style: .Dark, progressType: tvProgressType.Custom(cp: SweebiProgress.self))
-            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
+            tvProgress.showProgress(status: "0%", progressType: tvProgressType.custom(cp: SweebiProgress.self), style: .dark)
+            Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
         }
     }
     
@@ -100,7 +100,7 @@ class ViewController: UIViewController {
         }
         
         if self.progress <= 100 {
-            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval((self.progress <= 80) ? 0.5 : 0.25), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: TimeInterval((self.progress <= 80) ? 0.5 : 0.25), target: self, selector: #selector(self.progressFu), userInfo: nil, repeats: false)
         } else {
             tvProgress.dismiss()
             self.progress = -1

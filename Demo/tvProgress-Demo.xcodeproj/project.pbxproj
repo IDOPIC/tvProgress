@@ -14,8 +14,6 @@
 		95ED783E1CDB895500D36929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED783D1CDB895500D36929 /* ViewController.swift */; };
 		95ED78411CDB895500D36929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95ED783F1CDB895500D36929 /* Main.storyboard */; };
 		95ED78431CDB895500D36929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95ED78421CDB895500D36929 /* Assets.xcassets */; };
-		95ED784E1CDB895500D36929 /* tvProgress_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED784D1CDB895500D36929 /* tvProgress_DemoTests.swift */; };
-		95ED78591CDB895500D36929 /* tvProgress_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ED78581CDB895500D36929 /* tvProgress_DemoUITests.swift */; };
 		EC2057B41CDCC67F003EF294 /* SweebiLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2057B31CDCC67F003EF294 /* SweebiLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,20 +24,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9588349F1CDB88AD007509F4;
 			remoteInfo = tvProgress;
-		};
-		95ED784A1CDB895500D36929 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 95ED78301CDB895400D36929 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 95ED78371CDB895400D36929;
-			remoteInfo = "tvProgress-Demo";
-		};
-		95ED78551CDB895500D36929 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 95ED78301CDB895400D36929 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 95ED78371CDB895400D36929;
-			remoteInfo = "tvProgress-Demo";
 		};
 		EC2057AA1CDBF551003EF294 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -79,12 +63,6 @@
 		95ED78401CDB895500D36929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95ED78421CDB895500D36929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95ED78441CDB895500D36929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95ED78491CDB895500D36929 /* tvProgress-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tvProgress-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		95ED784D1CDB895500D36929 /* tvProgress_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvProgress_DemoTests.swift; sourceTree = "<group>"; };
-		95ED784F1CDB895500D36929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95ED78541CDB895500D36929 /* tvProgress-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tvProgress-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		95ED78581CDB895500D36929 /* tvProgress_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvProgress_DemoUITests.swift; sourceTree = "<group>"; };
-		95ED785A1CDB895500D36929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC2057A51CDBF551003EF294 /* tvProgress.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = tvProgress.xcodeproj; path = ../../tvProgress.xcodeproj; sourceTree = "<group>"; };
 		EC2057B31CDCC67F003EF294 /* SweebiLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweebiLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,20 +76,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95ED78461CDB895500D36929 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		95ED78511CDB895500D36929 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -119,8 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				95ED783A1CDB895500D36929 /* tvProgress-Demo */,
-				95ED784C1CDB895500D36929 /* tvProgress-DemoTests */,
-				95ED78571CDB895500D36929 /* tvProgress-DemoUITests */,
 				95ED78391CDB895400D36929 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,8 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				95ED78381CDB895400D36929 /* tvProgress-Demo.app */,
-				95ED78491CDB895500D36929 /* tvProgress-DemoTests.xctest */,
-				95ED78541CDB895500D36929 /* tvProgress-DemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,24 +108,6 @@
 				95ED78441CDB895500D36929 /* Info.plist */,
 			);
 			path = "tvProgress-Demo";
-			sourceTree = "<group>";
-		};
-		95ED784C1CDB895500D36929 /* tvProgress-DemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				95ED784D1CDB895500D36929 /* tvProgress_DemoTests.swift */,
-				95ED784F1CDB895500D36929 /* Info.plist */,
-			);
-			path = "tvProgress-DemoTests";
-			sourceTree = "<group>";
-		};
-		95ED78571CDB895500D36929 /* tvProgress-DemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				95ED78581CDB895500D36929 /* tvProgress_DemoUITests.swift */,
-				95ED785A1CDB895500D36929 /* Info.plist */,
-			);
-			path = "tvProgress-DemoUITests";
 			sourceTree = "<group>";
 		};
 		EC2057A41CDBF537003EF294 /* Frameworks */ = {
@@ -207,42 +149,6 @@
 			productReference = 95ED78381CDB895400D36929 /* tvProgress-Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		95ED78481CDB895500D36929 /* tvProgress-DemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 95ED78601CDB895500D36929 /* Build configuration list for PBXNativeTarget "tvProgress-DemoTests" */;
-			buildPhases = (
-				95ED78451CDB895500D36929 /* Sources */,
-				95ED78461CDB895500D36929 /* Frameworks */,
-				95ED78471CDB895500D36929 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				95ED784B1CDB895500D36929 /* PBXTargetDependency */,
-			);
-			name = "tvProgress-DemoTests";
-			productName = "tvProgress-DemoTests";
-			productReference = 95ED78491CDB895500D36929 /* tvProgress-DemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		95ED78531CDB895500D36929 /* tvProgress-DemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 95ED78631CDB895500D36929 /* Build configuration list for PBXNativeTarget "tvProgress-DemoUITests" */;
-			buildPhases = (
-				95ED78501CDB895500D36929 /* Sources */,
-				95ED78511CDB895500D36929 /* Frameworks */,
-				95ED78521CDB895500D36929 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				95ED78561CDB895500D36929 /* PBXTargetDependency */,
-			);
-			name = "tvProgress-DemoUITests";
-			productName = "tvProgress-DemoUITests";
-			productReference = 95ED78541CDB895500D36929 /* tvProgress-DemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -250,19 +156,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = tvProgress;
 				TargetAttributes = {
 					95ED78371CDB895400D36929 = {
 						CreatedOnToolsVersion = 7.3.1;
-					};
-					95ED78481CDB895500D36929 = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = 95ED78371CDB895400D36929;
-					};
-					95ED78531CDB895500D36929 = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = 95ED78371CDB895400D36929;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -286,8 +185,6 @@
 			projectRoot = "";
 			targets = (
 				95ED78371CDB895400D36929 /* tvProgress-Demo */,
-				95ED78481CDB895500D36929 /* tvProgress-DemoTests */,
-				95ED78531CDB895500D36929 /* tvProgress-DemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -319,20 +216,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95ED78471CDB895500D36929 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		95ED78521CDB895500D36929 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -347,22 +230,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95ED78451CDB895500D36929 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				95ED784E1CDB895500D36929 /* tvProgress_DemoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		95ED78501CDB895500D36929 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				95ED78591CDB895500D36929 /* tvProgress_DemoUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -370,16 +237,6 @@
 			isa = PBXTargetDependency;
 			name = tvProgress;
 			targetProxy = 954F526E1CDBF6DF0080805E /* PBXContainerItemProxy */;
-		};
-		95ED784B1CDB895500D36929 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 95ED78371CDB895400D36929 /* tvProgress-Demo */;
-			targetProxy = 95ED784A1CDB895500D36929 /* PBXContainerItemProxy */;
-		};
-		95ED78561CDB895500D36929 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 95ED78371CDB895400D36929 /* tvProgress-Demo */;
-			targetProxy = 95ED78551CDB895500D36929 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -409,8 +266,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -454,8 +313,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -472,6 +333,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALIDATE_PRODUCT = YES;
@@ -481,72 +343,28 @@
 		95ED785E1CDB895500D36929 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "tvProgress-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tvProgress.tvProgress-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		95ED785F1CDB895500D36929 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "tvProgress-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tvProgress.tvProgress-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		95ED78611CDB895500D36929 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "tvProgress-DemoTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tvProgress.tvProgress-DemoTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvProgress-Demo.app/tvProgress-Demo";
-			};
-			name = Debug;
-		};
-		95ED78621CDB895500D36929 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "tvProgress-DemoTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tvProgress.tvProgress-DemoTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvProgress-Demo.app/tvProgress-Demo";
-			};
-			name = Release;
-		};
-		95ED78641CDB895500D36929 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "tvProgress-DemoUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tvProgress.tvProgress-DemoUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "tvProgress-Demo";
-			};
-			name = Debug;
-		};
-		95ED78651CDB895500D36929 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "tvProgress-DemoUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tvProgress.tvProgress-DemoUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "tvProgress-Demo";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -567,24 +385,6 @@
 			buildConfigurations = (
 				95ED785E1CDB895500D36929 /* Debug */,
 				95ED785F1CDB895500D36929 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		95ED78601CDB895500D36929 /* Build configuration list for PBXNativeTarget "tvProgress-DemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				95ED78611CDB895500D36929 /* Debug */,
-				95ED78621CDB895500D36929 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		95ED78631CDB895500D36929 /* Build configuration list for PBXNativeTarget "tvProgress-DemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				95ED78641CDB895500D36929 /* Debug */,
-				95ED78651CDB895500D36929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
