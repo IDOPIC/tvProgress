@@ -154,15 +154,15 @@ Each of these properties has to be called on `tvProgress.sharedInstance`
 
 ```swift
 public enum tvProgressStyle {
-    case Dark
-    case Light
-    case Custom(mainColor: UIColor, secondaryColor: UIColor, blurStyle: UIBlurEffectStyle)
+    case dark
+    case light
+    case custom(mainColor: UIColor, secondaryColor: UIColor, blurStyle: UIBlurEffectStyle)
 }
 ```
 
-* Dark style displays `tvProgress` on a dark blurStyle background
-* Light style displays `tvProgress` on a light blurStyle background
-* Custom allows you to specify mainColor, secondaryColor and a UIBlurEffectStyle
+* dark style displays `tvProgress` on a dark blurStyle background
+* light style displays `tvProgress` on a light blurStyle background
+* custom allows you to specify mainColor, secondaryColor and a UIBlurEffectStyle
 
 ### tvLoaderType Enum
 
@@ -170,16 +170,16 @@ public enum tvProgressStyle {
 
 ```swift
 public enum tvLoaderType {
-    case Default()
-    case AndroidStyle()
-    case Custom(cl: tvLoaderAnimatable.Type)
+    case default()
+    case androidStyle()
+    case custom(cl: tvLoaderAnimatable.Type)
 }
 ```
 
 The enum has 3 different cases :
-* `Default` case that allows you to display a simple animated circle
-* `AndroidStyle` case that allows you to display a animated circle which start point is moving
-* `Custom` case is here to allow you to add your own animation. You have to pass a parameter that is a class type confirming to `tvLoaderAnimatable` protocol.
+* `default` case that allows you to display a simple animated circle
+* `androidStyle` case that allows you to display a animated circle which start point is moving
+* `custom` case is here to allow you to add your own animation. You have to pass a parameter that is a class type confirming to `tvLoaderAnimatable` protocol.
 
 ### tvProgressType Enum
 
@@ -187,14 +187,14 @@ The enum has 3 different cases :
 
 ```swift
 public enum tvProgressType {
-    case FlatCircle()
-    case Custom(cp: tvProgressAnimatable.Type)
+    case flatCircle()
+    case custom(cp: tvProgressAnimatable.Type)
 }
 ```
 
 The enum has 2 different cases :
-* `FlatCircle` case that allows you to display a simple animated circle
-* `Custom` case is here to allow you to add your own animation. You have to pass a parameter that is a class type confirming to `tvProgressAnimatable` protocol.
+* `flatCircle` case that allows you to display a simple animated circle
+* `custom` case is here to allow you to add your own animation. You have to pass a parameter that is a class type confirming to `tvProgressAnimatable` protocol.
 
 ### tvLoaderAnimatable Protocol
 
