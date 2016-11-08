@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2ECC3C7165E1520560D2579E0B7579D55B9DA227",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2ECC3C7165E1520560D2579E0B7579D55B9DA227" : 9223372036854775807,
+    "08178789AE26CC20331C2CDB5B5E8CB8AD1A6D27" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A918DF45-2923-4275-AACB-B80C8575D824",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2ECC3C7165E1520560D2579E0B7579D55B9DA227" : "tvProgress\/",
+    "08178789AE26CC20331C2CDB5B5E8CB8AD1A6D27" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "tvProgress-Demo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Demo\/tvProgress-Demo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.idopic.fr\/sweebi\/sweebi-tvOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "08178789AE26CC20331C2CDB5B5E8CB8AD1A6D27"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:IDOPIC\/tvProgress.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2ECC3C7165E1520560D2579E0B7579D55B9DA227"
+    }
+  ]
+}

@@ -131,15 +131,21 @@ open class tvProgress: UIView {
         }
     }
     
-    internal static func generateStatusLabelWithInstance(_ instance: tvProgress, andStatus status: String, andStyle style: tvProgressStyle) -> UILabel {
+    internal static func generateStatusLabelWithInstance(_ instance: tvProgress, andStatus status: String, andStyle style: tvProgressStyle, andWithMaxWidth mw: CGFloat) -> UILabel {
         let statusLabel: UILabel = UILabel()
         
         statusLabel.text = status
+        statusLabel.textAlignment = .center
         statusLabel.numberOfLines = 0
         statusLabel.font = instance.font
         statusLabel.backgroundColor = UIColor.clear
         statusLabel.textColor = style.mainColor
         statusLabel.sizeToFit()
+        
+        if statusLabel.frame.width > mw {
+            statusLabel.frame = CGRect(x: statusLabel.frame.origin.x, y: statusLabel.frame.origin.y, width: mw, height: statusLabel.frame.height)
+            statusLabel.sizeToFit()
+        }
         
         return statusLabel
     }

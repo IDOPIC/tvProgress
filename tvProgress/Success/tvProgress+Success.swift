@@ -20,8 +20,9 @@ extension tvProgress {
         - action: it's a tuple that contains a label and a closure. If you specify this parameter, the label will be use to generate a button while the closure will be executed when the user presses the button
         - menuButtonDidPress: specify a closure to be executed when the user press the Menu button while tvProgress is displayed
         - playButtonDidPress: specify a closure to be executed when the user press the Play/Pause button while tvProgress is displayed
+        - marge: marging size for status label (right and left)
      */
-    public static func showSuccessWithStatus(_ status: String? = .none, andSuccessImage successImage: UIImage? = .none, andStyle style: tvProgressStyle? = .none, andAction action: (label: String, closure: ((Void) -> Void))? = .none, menuButtonDidPress: (() -> Void)? = .none, playButtonDidPress: (() -> Void)? = .none, completion: (() -> Void)? = .none) -> Void {
+    public static func showSuccessWithStatus(_ status: String? = .none, andSuccessImage successImage: UIImage? = .none, andStyle style: tvProgressStyle? = .none, andAction action: (label: String, closure: ((Void) -> Void))? = .none, menuButtonDidPress: (() -> Void)? = .none, playButtonDidPress: (() -> Void)? = .none, andWithMarginTextSize marge: CGFloat = 400, completion: (() -> Void)? = .none) -> Void {
         let instance: tvProgress = tvProgress.sharedInstance
         OperationQueue.main.addOperation() { () -> Void in
             if !instance.isVisible {
@@ -33,7 +34,7 @@ extension tvProgress {
                 views.insert(successImageView, at: 0)
                 
                 if let s = status {
-                    let sLabel: UILabel = tvProgress.generateStatusLabelWithInstance(instance, andStatus: s, andStyle: style ?? instance.style)
+                    let sLabel: UILabel = tvProgress.generateStatusLabelWithInstance(instance, andStatus: s, andStyle: style ?? instance.style, andWithMaxWidth: UIScreen.main.bounds.width - marge)
                     let v: UIView = views[views.count - 1]
                     sLabel.frame = CGRect(x: instance.center.x - (sLabel.frame.width / 2), y: v.frame.origin.y + v.frame.height + 30, width: sLabel.frame.width, height: sLabel.frame.height)
                     views.insert(sLabel, at: views.count)

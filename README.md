@@ -72,7 +72,7 @@ public var isVisible: Bool { get }
 You can show the status of indeterminate tasks using this method:
 
 ```swift
-public static func show(status: String? = .None, contentView: UIView? = .None, loaderType lt: tvLoaderType? = .None, style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void
+public static func show(_ status: String? = .none, contentView: UIView? = .none, loaderType lt: tvLoaderType? = .none, style: tvProgressStyle? = .none, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .none, playButtonDidPress: (() -> Void)? = .none, andWithMarginTextSize marge: CGFloat = 400, completion: (() -> Void)? = .none) -> Void
 ```
 
 Each parameter is optional.
@@ -89,7 +89,7 @@ You can either :
 ### Showing a progress animation
 
 ```swift
-static public func showProgress(progress: Double = 0, status: String? = .None, contentView: UIView? = .None, progressType pt: tvProgressType? = .None, style: tvProgressStyle? = .None, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void
+static public func showProgress(_ progress: Double = 0, status: String? = .none, contentView: UIView? = .none, progressType pt: tvProgressType? = .none, style: tvProgressStyle? = .none, withBlurView addBlurView: Bool = true, menuButtonDidPress: (() -> Void)? = .none, playButtonDidPress: (() -> Void)? = .none, andWithMarginTextSize marge: CGFloat = 400, completion: (() -> Void)? = .none) -> Void
 ```
 
 Each parameter is optional.
@@ -119,8 +119,8 @@ public static func dismiss(delay: Double = 0) -> Void
 If your loading success or fails, you can display a message that gives information about what happened to the user.
 
 ```swift
-public static func showSuccessWithStatus(status: String? = .None, andSuccessImage successImage: UIImage? = .None, andStyle style: tvProgressStyle? = .None, andAction action: (label: String, closure: (Void -> Void))? = .None, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void
-public static func showErrorWithStatus(status: String? = .None, andErrorImage errorImage: UIImage? = .None, andStyle style: tvProgressStyle? = .None, andAction action: (label: String, closure: (Void -> Void))? = .None, menuButtonDidPress: (() -> Void)? = .None, playButtonDidPress: (() -> Void)? = .None) -> Void
+public static func showSuccessWithStatus(_ status: String? = .none, andSuccessImage successImage: UIImage? = .none, andStyle style: tvProgressStyle? = .none, andAction action: (label: String, closure: ((Void) -> Void))? = .none, menuButtonDidPress: (() -> Void)? = .none, playButtonDidPress: (() -> Void)? = .none, andWithMarginTextSize marge: CGFloat = 400, completion: (() -> Void)? = .none) -> Void
+public static func showErrorWithStatus(_ status: String? = .none, andErrorImage errorImage: UIImage? = .none, andStyle style: tvProgressStyle? = .none, andAction action: (label: String, closure: ((Void) -> Void))? = .none, menuButtonDidPress: (() -> Void)? = .none, playButtonDidPress: (() -> Void)? = .none, andWithMarginTextSize marge: CGFloat = 400, completion: (() -> Void)? = .none) -> Void
 ```
 
 As it was for showing and dismissing `tvProgress`, each parameter is optional so that you can fully customize your success or error displaying.
