@@ -5,7 +5,7 @@
 
 `tvProgress` is an easy way of displaying the progress of an ongoing task on tvOS.
 
-`tvProgress` is inspired by [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD). This library is specifically designed for tvOS and fully respects Apple design and interface guidelines regarding tvOS. It is written using Swift 2.2.
+`tvProgress` is inspired by [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD). This library is specifically designed for tvOS and fully respects Apple design and interface guidelines regarding tvOS. It is written using Swift 3.0.
 
 ![tvProgress](http://f.cl.ly/items/1x2r2z2w3e2i2v011M2k/firstloader_1-2.gif)
 ![tvProgress](http://f.cl.ly/items/2d1R441V2C471S1B0B3i/thirdloader-2.gif)
